@@ -6,22 +6,25 @@ Desarrollar un sistema de simulación de correos electrónicos utilizando estruc
  * jsonparser
 
 # Grupo # 8
-Integrantes :
+**Integrantes:**
 ### Anderson Danilo García	201602834
 
 ### Sophia Berenice Salguero Aguilar 201807002
 
-Realizo:
+**Realizo:**
 * Login de root y usuario comun
 * Crear Cuenta de forma Manual
-En root
+
+**En root**
 * carga masiva del JSON
 * Reporte de usuarios en Graphviz
-En Usuario común
+
+**En Usuario común**
 * Agregar contactos
 * Ver Contactos 
 * Reporte de contactos en Graphviz
-* Actualizar Perfil 
+* Actualizar Perfil
+
 Todo con sus interfaces.
 
 ### Byron Andres Ovalle Flores 201801392
