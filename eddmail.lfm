@@ -1,0 +1,80 @@
+object frmLogin: TfrmLogin
+  Left = 772
+  Height = 285
+  Top = 130
+  Width = 407
+  Caption = 'Inicio de Sesión'
+  ClientHeight = 285
+  ClientWidth = 407
+  Color = clSkyBlue
+  LCLVersion = '4.2.0.0'
+  OnCreate = FormCreate
+  object lblUsuario: TLabel
+    Left = 56
+    Height = 23
+    Top = 80
+    Width = 67
+    Caption = 'Email:'
+    Font.Height = -19
+    Font.Name = 'Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblContrasenia: TLabel
+    Left = 24
+    Height = 23
+    Top = 136
+    Width = 129
+    Caption = 'Contraseña:'
+    Font.Height = -19
+    Font.Name = 'Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object edtUsuario: TEdit
+    Left = 168
+    Height = 36
+    Top = 80
+    Width = 208
+    TabOrder = 0
+  end
+  object edtContrasenia: TEdit
+    Left = 168
+    Height = 36
+    Top = 128
+    Width = 208
+    TabOrder = 1
+  end
+  object lblTitulo: TLabel
+    Left = 152
+    Height = 24
+    Top = 24
+    Width = 100
+    Caption = 'EDDMail'
+    Color = 13983399
+    Font.Height = -20
+    Font.Name = 'Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    OnClick = btnLoginClick
+  end
+  object btnCrearCuenta: TButton
+    Left = 144
+    Height = 32
+    Top = 232
+    Width = 116
+    Caption = 'Crear Cuenta'
+    TabOrder = 2
+    OnClick = btnCrearCuentaClick
+  end
+  object btnLogin: TButton
+    Left = 144
+    Height = 32
+    Top = 184
+    Width = 115
+    Caption = 'Iniciar Sesión'
+    TabOrder = 3
+    OnClick = btnLoginClick
+  end
+end

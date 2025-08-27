@@ -1,0 +1,113 @@
+object frmRegistro: TfrmRegistro
+  Left = 1023
+  Height = 402
+  Top = 129
+  Width = 408
+  Caption = 'Creación de Cuenta'
+  ClientHeight = 402
+  ClientWidth = 408
+  Color = 16304670
+  LCLVersion = '4.2.0.0'
+  object btnRegistrar: TButton
+    Left = 96
+    Height = 33
+    Top = 344
+    Width = 88
+    Caption = 'Registrarse'
+    TabOrder = 0
+    OnClick = btnRegistrarClick
+  end
+  object btnCancelar: TButton
+    Left = 232
+    Height = 33
+    Top = 344
+    Width = 96
+    Caption = 'Cancelar'
+    TabOrder = 1
+    OnClick = btnCancelarClick
+  end
+  object lblNombre: TLabel
+    Left = 64
+    Height = 19
+    Top = 48
+    Width = 54
+    Caption = 'Nombre'
+  end
+  object lblUsuario: TLabel
+    Left = 64
+    Height = 19
+    Top = 96
+    Width = 51
+    Caption = 'Usuario'
+  end
+  object lblEmail: TLabel
+    Left = 64
+    Height = 19
+    Top = 144
+    Width = 38
+    Caption = 'Email'
+  end
+  object lblTelefono: TLabel
+    Left = 64
+    Height = 19
+    Top = 200
+    Width = 57
+    Caption = 'Telefono'
+  end
+  object lblContrasenia: TLabel
+    Left = 64
+    Height = 19
+    Top = 248
+    Width = 75
+    Caption = 'Contraseña'
+  end
+  object lblConfirmarContrasenia: TLabel
+    Left = 64
+    Height = 19
+    Top = 296
+    Width = 145
+    Caption = 'Confirmar Contraseña'
+  end
+  object edtNombre: TEdit
+    Left = 232
+    Height = 36
+    Top = 40
+    Width = 144
+    TabOrder = 2
+  end
+  object edtUsuario: TEdit
+    Left = 232
+    Height = 36
+    Top = 88
+    Width = 144
+    TabOrder = 3
+  end
+  object edtEmail: TEdit
+    Left = 232
+    Height = 36
+    Top = 136
+    Width = 144
+    TabOrder = 4
+  end
+  object edtTelefono: TEdit
+    Left = 232
+    Height = 36
+    Top = 183
+    Width = 144
+    TabOrder = 5
+  end
+  object edtContrasenia: TEdit
+    Left = 232
+    Height = 36
+    Top = 240
+    Width = 144
+    TabOrder = 6
+  end
+  object edtConfirmarContrasenia: TEdit
+    Left = 232
+    Height = 36
+    Top = 288
+    Width = 144
+    TabOrder = 7
+  end
+end

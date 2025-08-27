@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="EDDMail_Fase1"/>
+      <Scaled Value="True"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit>
+        <Filename Value="EDDMail_Fase1.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddmail.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLogin"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDMail"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddestructuras.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="EDDEstructuras"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddregistro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmRegistro"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDRegistro"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddmenuroot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMenuRoot"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDMenuRoot"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddmenuusuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMenuUsuario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDMenuUsuario"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddglobal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="EDDGlobal"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddcontactos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="EDDContactos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddagregarcontacto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAgregarContacto"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDAgregarContacto"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddvercontactos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmVerContactos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDVerContactos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddreportes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDReportes"/>
+      </Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="EDDMail_Fase1"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions>
+      <Item>
+        <Name Value="EAbort"/>
+      </Item>
+      <Item>
+        <Name Value="ECodetoolError"/>
+      </Item>
+      <Item>
+        <Name Value="EFOpenError"/>
+      </Item>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

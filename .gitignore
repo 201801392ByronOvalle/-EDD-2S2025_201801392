@@ -1,0 +1,28 @@
+# Archivos compilados
+*.o
+*.ppu
+*.res
+*.bak
+*.~*
+
+# Archivos de configuración local
+*.lpi.user
+*.lps
+*.~lck
+
+# Binarios / carpetas de compilación
+lib/
+build/
+debug/
+release/
+*.exe
+*.out
+*.a
+*.so
+*.dll
+
+# Archivos temporales / logs
+*.tmp
+*.log
+.DS_Store
+Thumbs.db

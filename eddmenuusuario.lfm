@@ -1,0 +1,123 @@
+object frmMenuUsuario: TfrmMenuUsuario
+  Left = 890
+  Height = 546
+  Top = 105
+  Width = 418
+  Caption = 'Menú de Usuario'
+  ClientHeight = 546
+  ClientWidth = 418
+  Color = clCream
+  LCLVersion = '4.2.0.0'
+  OnShow = FormShow
+  object btnBandejaEntrada: TButton
+    Left = 128
+    Height = 33
+    Top = 64
+    Width = 160
+    Caption = 'Bandeja de Entrada'
+    TabOrder = 0
+    OnClick = btnBandejaEntradaClick
+  end
+  object btnEnviarCorreo: TButton
+    Left = 128
+    Height = 33
+    Top = 120
+    Width = 160
+    Caption = 'Enviar Correo'
+    TabOrder = 1
+    OnClick = btnEnviarCorreoClick
+  end
+  object btnPapelera: TButton
+    Left = 128
+    Height = 33
+    Top = 176
+    Width = 160
+    Caption = 'Papelera'
+    TabOrder = 2
+    OnClick = btnPapeleraClick
+  end
+  object btnProgramarCorreo: TButton
+    Left = 128
+    Height = 33
+    Top = 232
+    Width = 160
+    Caption = 'Programar Correo'
+    TabOrder = 3
+    OnClick = btnProgramarCorreoClick
+  end
+  object btnCorreosProgramados: TButton
+    Left = 128
+    Height = 33
+    Top = 281
+    Width = 160
+    Caption = 'Correos Programados'
+    TabOrder = 4
+    OnClick = btnCorreosProgramadosClick
+  end
+  object btnAgregarContacto: TButton
+    Left = 128
+    Height = 33
+    Top = 337
+    Width = 160
+    Caption = 'Agregar Contacto'
+    TabOrder = 5
+    OnClick = btnAgregarContactoClick
+  end
+  object btnContactos: TButton
+    Left = 128
+    Height = 33
+    Top = 386
+    Width = 160
+    Caption = 'Contactos'
+    TabOrder = 6
+    OnClick = btnContactosClick
+  end
+  object btnActualizarPerfil: TButton
+    Left = 128
+    Height = 33
+    Top = 441
+    Width = 160
+    Caption = 'Actualizar Perfil'
+    TabOrder = 7
+    OnClick = btnActualizarPerfilClick
+  end
+  object btnReportes: TButton
+    Left = 128
+    Height = 33
+    Top = 497
+    Width = 160
+    Caption = 'Generar Reportes'
+    TabOrder = 8
+    OnClick = btnReportesClick
+  end
+  object btnSalir: TButton
+    Left = 360
+    Height = 33
+    Top = 16
+    Width = 48
+    Caption = '|->'
+    TabOrder = 9
+    OnClick = btnSalirClick
+  end
+  object lblSaludo: TLabel
+    Left = 112
+    Height = 23
+    Top = 16
+    Width = 57
+    Caption = 'Hola:'
+    Font.Height = -19
+    Font.Name = 'Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblTitulo: TLabel
+    Left = 16
+    Height = 1
+    Top = 16
+    Width = 1
+    Font.Height = -19
+    Font.Name = 'Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+end

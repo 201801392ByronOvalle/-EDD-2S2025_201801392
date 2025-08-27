@@ -1,0 +1,57 @@
+object frmAgregarContacto: TfrmAgregarContacto
+  Left = 808
+  Height = 240
+  Top = 176
+  Width = 320
+  Caption = 'Agregar Contactos'
+  ClientHeight = 240
+  ClientWidth = 320
+  Color = 12829483
+  LCLVersion = '4.2.0.0'
+  object btnAgregar: TButton
+    Left = 64
+    Height = 25
+    Top = 144
+    Width = 75
+    Caption = 'Agregar'
+    TabOrder = 0
+    OnClick = btnAgregarClick
+  end
+  object btnCancelar: TButton
+    Left = 180
+    Height = 25
+    Top = 144
+    Width = 75
+    Caption = 'Cancelar'
+    TabOrder = 1
+    OnClick = btnCancelarClick
+  end
+  object edtEmail: TEdit
+    Left = 104
+    Height = 36
+    Top = 80
+    Width = 192
+    TabOrder = 2
+  end
+  object lblEmail: TLabel
+    Left = 16
+    Height = 23
+    Top = 88
+    Width = 80
+    Caption = 'Correo:'
+    Font.Height = -19
+    Font.Name = 'Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblTitulo: TLabel
+    Left = 40
+    Height = 19
+    Top = 28
+    Width = 242
+    Caption = 'Ingrese el correo del contacto'
+    Font.Height = -16
+    Font.Name = 'Serif'
+    ParentFont = False
+  end
+end
