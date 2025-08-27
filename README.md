@@ -7,9 +7,9 @@ Desarrollar un sistema de simulación de correos electrónicos utilizando estruc
 
 # Grupo # 8
 Integrantes :
-* Anderson Danilo García	201602834
+### Anderson Danilo García	201602834
 
-* Sophia Berenice Salguero Aguilar 201807002
+### Sophia Berenice Salguero Aguilar 201807002
 
 Realizo:
 Login de root y usuario comun
@@ -22,6 +22,6 @@ En Usuario común
 * Ver Contactos 
 * Reporte de contactos en Graphviz
 * Actualizar Perfil 
-Todo con sus interfaces
+Todo con sus interfaces.
 
-* Byron Andres Ovalle Flores 201801392
+### Byron Andres Ovalle Flores 201801392
