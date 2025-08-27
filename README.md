@@ -12,8 +12,8 @@ Integrantes :
 ### Sophia Berenice Salguero Aguilar 201807002
 
 Realizo:
-Login de root y usuario comun
-Crear Cuenta de forma Manual
+* Login de root y usuario comun
+* Crear Cuenta de forma Manual
 En root
 * carga masiva del JSON
 * Reporte de usuarios en Graphviz
