@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
-  EDDEstructuras, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos;
+  EDDEstructuras, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos,
+  EDDActualizarPerfil;
 
 type
 
@@ -113,8 +114,21 @@ begin
 end;
 
 procedure TfrmMenuUsuario.btnActualizarPerfilClick(Sender: TObject);
+var
+  formActualizarPerfil: TfrmActualizarPerfil;
 begin
-  ShowMessage('Actualizar perfil - Pendiente de implementar');
+  formActualizarPerfil := TfrmActualizarPerfil.Create(nil);
+  try
+    formActualizarPerfil.SetUsuarioActual(UsuarioActual);
+    if formActualizarPerfil.ShowModal = mrOk then
+    begin
+      ShowMessage('Perfil actualizado correctamente');
+      // Actualizar el saludo por si cambió el nombre de usuario
+      lblSaludo.Caption := '¡Hola, ' + UsuarioActual^.nombre + '!';
+    end;
+  finally
+    formActualizarPerfil.Free;
+  end;
 end;
 
 procedure TfrmMenuUsuario.btnReportesClick(Sender: TObject);

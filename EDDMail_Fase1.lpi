@@ -107,8 +107,14 @@
         <Filename Value="eddactualizarperfil.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmActualizarPerfil"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EDDActualizarPerfil"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddcorreos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="EDDCorreos"/>
       </Unit>
     </Units>
   </ProjectOptions>

@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, EDDMail, EDDEstructuras, EDDRegistro, EDDMenuRoot, EDDMenuUsuario,
   EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos, 
-EDDActualizarPerfil;
+EDDActualizarPerfil, EDDCorreos;
 
 {$R *.res}
 

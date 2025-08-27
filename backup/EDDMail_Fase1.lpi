@@ -103,6 +103,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EDDReportes"/>
       </Unit>
+      <Unit>
+        <Filename Value="eddactualizarperfil.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmActualizarPerfil"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDActualizarPerfil"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
