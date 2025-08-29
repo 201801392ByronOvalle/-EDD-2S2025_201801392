@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   EDDEstructuras, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos,
-  EDDActualizarPerfil, EDDProgramarCorreo;
+  EDDActualizarPerfil, EDDProgramarCorreo,EDDCorreos, EDDVerCorreosProgramados;
 
 type
 
@@ -96,8 +96,15 @@ begin
 end;
 
 procedure TfrmMenuUsuario.btnCorreosProgramadosClick(Sender: TObject);
+var
+  formVerCorreosProgramados: TfrmVerCorreosProgramados;
 begin
-  ShowMessage('Correos programados - Pendiente de implementar');
+  formVerCorreosProgramados := TfrmVerCorreosProgramados.Create(nil);
+  try
+    formVerCorreosProgramados.ShowModal;
+  finally
+    formVerCorreosProgramados.Free;
+  end;
 end;
 
 procedure TfrmMenuUsuario.btnAgregarContactoClick(Sender: TObject);
@@ -144,7 +151,7 @@ end;
 
 procedure TfrmMenuUsuario.btnReportesClick(Sender: TObject);
 var
-  carpetaReportes, archivoContactos: string;
+  carpetaReportes, archivoContactos, archivoCorreos: string;
   AProcess: TProcess;
 begin
   // Crear carpeta de reportes del usuario
@@ -174,13 +181,32 @@ begin
     end;
   end;
 
-  // 2. Reporte de Correos Recibidos
+   // 2. Reporte de Correos Programados
+  if not ColaVacia(ColaCorreosGlobal) then
+  begin
+    archivoCorreos := carpetaReportes + '/reporte_correos_programados.dot';
+    if GenerarReporteCorreosProgramadosGraphviz(ColaCorreosGlobal, archivoCorreos) then
+    begin
+      // Generar PNG automaticamente
+      AProcess := TProcess.Create(nil);
+      try
+        AProcess.Executable := 'dot';
+        AProcess.Parameters.Add('-Tpng');
+        AProcess.Parameters.Add(archivoCorreos);
+        AProcess.Parameters.Add('-o');
+        AProcess.Parameters.Add(carpetaReportes + '/reporte_correos_programados.png');
+        AProcess.Options := [poWaitOnExit, poNoConsole];
+        AProcess.Execute;
+      finally
+        AProcess.Free;
+      end;
+    end;
+  end;
+
   // 3. Reporte de Papelera
   // 4. Reporte de Correos Programados
 
-  ShowMessage('Reportes generados en la carpeta: ' + carpetaReportes +
-             LineEnding + '- reporte_contactos.dot' +
-             LineEnding + '- reporte_contactos.png');
+  ShowMessage('Reportes generados en la carpeta: ' + carpetaReportes);
 end;
 
 procedure TfrmMenuUsuario.btnSalirClick(Sender: TObject);

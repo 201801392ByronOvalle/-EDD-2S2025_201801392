@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, EDDMail, EDDEstructuras, EDDRegistro, EDDMenuRoot,
   EDDMenuUsuario, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos,
-  EDDActualizarPerfil, EDDCorreos, EDDProgramarCorreo;
+  EDDActualizarPerfil, EDDCorreos, EDDProgramarCorreo, EDDVerCorreosProgramados;
 
 {$R *.res}
 
@@ -31,6 +31,7 @@ begin
   Application.CreateForm(TfrmVerContactos, frmVerContactos);
   Application.CreateForm(TfrmActualizarPerfil, frmActualizarPerfil);
   Application.CreateForm(TfrmProgramarCorreo, frmProgramarCorreo);
+  Application.CreateForm(TfrmVerCorreosProgramados, frmVerCorreosProgramados);
   Application.Run;
 end.
 

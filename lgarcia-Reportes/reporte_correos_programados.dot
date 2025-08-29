@@ -1,0 +1,19 @@
+digraph ColaCorreosProgramados {
+  rankdir=TB;
+  node [shape=box, style=filled, fillcolor=lightyellow, fontname=Arial, fontsize=10, width=3];
+  edge [arrowhead=vee, color=orange];
+  graph [bgcolor=transparent, label="Cola de Correos Programados (FIFO)", labelloc=top];
+
+  node1 [label="ID: 1\nDestinatario: mitzep@edd.com\nAsunto: Prueba 1\nFecha: 2025-08-30 16:12\nProgramado: No\nMensaje: Correo Prueba 1..."];
+  node2 [label="ID: 2\nDestinatario: gkroah-hartman@edd.com\nAsunto: Prueba 2\nFecha: 2025-08-29 16:13\nProgramado: No\nMensaje: Correo prueba 2..."];
+  node3 [label="ID: 3\nDestinatario: mshuttleworth@edd.com\nAsunto: Prueba 3\nFecha: 2025-08-31 16:16\nProgramado: No\nMensaje: Prueba correo 3..."];
+  node4 [label="ID: 4\nDestinatario: smejia@edd.com\nAsunto: Prueba 4\nFecha: 2025-09-01 16:16\nProgramado: No\nMensaje: Prueba 4 correo..."];
+  node5 [label="ID: 5\nDestinatario: bfox@edd.com\nAsunto: Prueba 5\nFecha: 2025-09-02 16:17\nProgramado: No\nMensaje: Correo Prueba 5..."];
+  node6 [label="ID: 6\nDestinatario: jcorbet@edd.com\nAsunto: Prueba 6\nFecha: 2025-08-29 16:17\nProgramado: Sí\nMensaje: Prueba 6 correo..."];
+
+  node1 -> node2;
+  node2 -> node3;
+  node3 -> node4;
+  node4 -> node5;
+  node5 -> node6;
+}

@@ -130,6 +130,7 @@ var
   archivo: TextFile;
   actual: PNodoCorreo;
   i: Integer;
+  estadoTexto: string;
 begin
   Result := False;
   if ColaVacia(cola) then Exit;
@@ -139,10 +140,10 @@ begin
     Rewrite(archivo);
 
     WriteLn(archivo, 'digraph ColaCorreosProgramados {');
-    WriteLn(archivo, '  rankdir=LR;');
-    WriteLn(archivo, '  node [shape=record, style=filled, fillcolor=lightyellow, fontname=Arial, fontsize=9];');
+    WriteLn(archivo, '  rankdir=TB;'); // Top to Bottom (cola en vertical)
+    WriteLn(archivo, '  node [shape=box, style=filled, fillcolor=lightyellow, fontname=Arial, fontsize=10, width=3];');
     WriteLn(archivo, '  edge [arrowhead=vee, color=orange];');
-    WriteLn(archivo, '  graph [bgcolor=transparent, label="Cola de Correos Programados (FIFO)"];');
+    WriteLn(archivo, '  graph [bgcolor=transparent, label="Cola de Correos Programados (FIFO)", labelloc=top];');
     WriteLn(archivo, '');
 
     // Generar nodos
@@ -150,14 +151,20 @@ begin
     i := 1;
     while actual <> nil do
     begin
-      WriteLn(archivo, '  node', i, ' [label="');
-      WriteLn(archivo, '    {');
-      WriteLn(archivo, '      Asunto: ', actual^.dato^.asunto, '|');
-      WriteLn(archivo, '      Para: ', actual^.dato^.destinatario, '|');
-      WriteLn(archivo, '      Programado: ', FormatDateTime('yyyy-mm-dd hh:nn', actual^.dato^.fechaHoraProgramada), '|');
-      WriteLn(archivo, '      Estado: ', actual^.dato^.estado);
-      WriteLn(archivo, '    }');
-      WriteLn(archivo, '  "];');
+      // Convertir estado a texto legible
+      if actual^.dato^.estado = 'P' then
+        estadoTexto := 'Sí'
+      else
+        estadoTexto := 'No';
+
+      WriteLn(archivo, '  node', i, ' [label="',
+        'ID: ', actual^.dato^.id, '\n',
+        'Destinatario: ', actual^.dato^.destinatario, '\n',
+        'Asunto: ', actual^.dato^.asunto, '\n',
+        'Fecha: ', FormatDateTime('yyyy-mm-dd hh:nn', actual^.dato^.fechaHoraProgramada), '\n',
+        'Programado: ', estadoTexto, '\n',
+        'Mensaje: ', Copy(actual^.dato^.mensaje, 1, 30), '...',
+        '"];');
 
       actual := actual^.siguiente;
       Inc(i);
@@ -165,7 +172,7 @@ begin
 
     WriteLn(archivo, '');
 
-    // Generar conexiones de cola
+    // Generar flechas hacia abajo
     for i := 1 to cola.tamanio - 1 do
     begin
       WriteLn(archivo, '  node', i, ' -> node', i + 1, ';');

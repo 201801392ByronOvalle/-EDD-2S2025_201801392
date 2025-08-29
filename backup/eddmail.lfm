@@ -6,7 +6,7 @@ object frmLogin: TfrmLogin
   Caption = 'Inicio de Sesión'
   ClientHeight = 285
   ClientWidth = 407
-  Color = 16636399
+  Color = clSkyBlue
   LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object lblUsuario: TLabel
