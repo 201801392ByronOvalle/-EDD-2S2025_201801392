@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
-  EDDGlobal, EDDCorreos;
+  EDDGlobal, EDDCorreos, EDDMatrizRelaciones;
 
 type
 
@@ -115,9 +115,15 @@ begin
   // Cambiar estado de todos los correos programados a enviados
   while actual <> nil do
   begin
-    if actual^.dato^.estado = 'P' then // Solo los programados
+    if actual^.dato^.estado = 'P' then // Solo los que están programados
     begin
       actual^.dato^.estado := 'E'; // Cambiar a Enviado
+
+      // Registrar relación en la matriz dispersa
+      InsertarRelacion(MatrizRelacionesGlobal,
+                      actual^.dato^.remitente,
+                      actual^.dato^.destinatario);
+
       Inc(enviados);
     end;
     actual := actual^.siguiente;

@@ -137,6 +137,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EDDVerCorreosProgramados"/>
       </Unit>
+      <Unit>
+        <Filename Value="eddmatrizrelaciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="EDDMatrizRelaciones"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

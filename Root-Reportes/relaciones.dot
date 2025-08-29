@@ -1,0 +1,57 @@
+digraph MatrizRelaciones {
+  node [shape=box, style=filled, fontname=Arial];
+  rankdir=LR;
+  graph [bgcolor=transparent, label="Matriz de Relaciones Remitente vs Destinatario"];
+
+  R [label=" ", fillcolor=gray, width=0.5, height=0.5];
+// Destinatarios (cabecera fila superior)
+  C0 [label="gkroah-hartman@edd.com", fillcolor=lightblue];
+  C1 [label="lgarcia@edd.com", fillcolor=lightblue];
+  C2 [label="mitzep@edd.com", fillcolor=lightblue];
+  C3 [label="mshuttleworth@edd.com", fillcolor=lightblue];
+
+// Remitentes (cabecera columna izquierda)
+  F0 [label="lgarcia@edd.com", fillcolor=lightgreen];
+  F1 [label="mitzep@edd.com", fillcolor=lightgreen];
+
+// Celdas de relaciones (intersecciones)
+  N_1_3 [label="2", fillcolor=orange];
+  F1 -> N_1_3;
+  N_1_3 -> C3;
+  N_1_1 [label="2", fillcolor=orange];
+  F1 -> N_1_1;
+  N_1_1 -> C1;
+  N_0_3 [label="2", fillcolor=orange];
+  F0 -> N_0_3;
+  N_0_3 -> C3;
+  N_0_0 [label="2", fillcolor=orange];
+  F0 -> N_0_0;
+  N_0_0 -> C0;
+  N_0_2 [label="2", fillcolor=orange];
+  F0 -> N_0_2;
+  N_0_2 -> C2;
+
+// Conectar nodo raíz con cabeceras
+  R -> C0;
+  C0 -> C1;
+  C1 -> C2;
+  C2 -> C3;
+  R -> F0;
+  F0 -> F1;
+
+{rank=same; R;
+  C0;
+  C1;
+  C2;
+  C3;
+}
+{rank=same; F0;
+  N_0_3;
+  N_0_0;
+  N_0_2;
+}
+{rank=same; F1;
+  N_1_3;
+  N_1_1;
+}
+}

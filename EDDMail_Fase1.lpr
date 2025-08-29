@@ -12,7 +12,8 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, EDDMail, EDDEstructuras, EDDRegistro, EDDMenuRoot,
   EDDMenuUsuario, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos,
-  EDDActualizarPerfil, EDDCorreos, EDDProgramarCorreo, EDDVerCorreosProgramados;
+  EDDActualizarPerfil, EDDCorreos, EDDProgramarCorreo, EDDVerCorreosProgramados,
+  EDDMatrizRelaciones;
 
 {$R *.res}
 

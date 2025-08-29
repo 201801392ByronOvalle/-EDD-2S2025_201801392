@@ -1,12 +1,12 @@
 object frmMenuRoot: TfrmMenuRoot
-  Left = 771
+  Left = 775
   Height = 268
-  Top = 319
+  Top = 271
   Width = 347
   Caption = 'Menú Administrador'
   ClientHeight = 268
   ClientWidth = 347
-  Color = 15554391
+  Color = clCream
   LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object btnCargaMasiva: TButton

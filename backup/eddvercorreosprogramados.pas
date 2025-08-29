@@ -49,7 +49,7 @@ begin
   // Configurar StringGrid
   sgCorreos.Clear;
   sgCorreos.RowCount := 1; // Solo la fila de encabezados
-  sgCorreos.ColCount := 6; // Volvemos a 6 columnas con estado
+  sgCorreos.ColCount := 6; // 6 columnas
 
   // Configurar encabezados
   sgCorreos.Cells[0, 0] := 'ID';
@@ -71,20 +71,20 @@ begin
     if actual^.dato^.estado = 'P' then
       estadoTexto := 'No'
     else
-      estadoTexto := 'Sí';
+      estadoTexto := 'Si';
 
     sgCorreos.Cells[0, i] := IntToStr(actual^.dato^.id);
     sgCorreos.Cells[1, i] := actual^.dato^.remitente;
     sgCorreos.Cells[2, i] := actual^.dato^.destinatario;
     sgCorreos.Cells[3, i] := actual^.dato^.asunto;
     sgCorreos.Cells[4, i] := DateTimeToStr(actual^.dato^.fechaHoraProgramada);
-    sgCorreos.Cells[5, i] := estadoTexto; // Estado como Sí/No
+    sgCorreos.Cells[5, i] := estadoTexto; // Estado como Si/No
 
     actual := actual^.siguiente;
     Inc(i);
   end;
 
-  // Ajustar anchos de columnas
+  // Ajustar ancho de columnas
   sgCorreos.AutoSizeColumns;
 end;
 
@@ -118,6 +118,12 @@ begin
     if actual^.dato^.estado = 'P' then // Solo los que están programados
     begin
       actual^.dato^.estado := 'E'; // Cambiar a Enviado
+
+      // Registrar relación en la matriz dispersa
+      InsertarRelacion(MatrizRelacionesGlobal,
+                      actual^.dato^.remitente,
+                      actual^.dato^.destinatario);
+
       Inc(enviados);
     end;
     actual := actual^.siguiente;

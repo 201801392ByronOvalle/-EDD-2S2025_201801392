@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, FileUtil,
-  Process, EDDEstructuras, EDDGlobal;
+  Process, EDDEstructuras, EDDGlobal, EDDMatrizRelaciones;
 
 type
 
@@ -66,10 +66,53 @@ begin
   end;
 end;
 
+// Modificar el btnReporteRelacionesClick
 procedure TfrmMenuRoot.btnReporteRelacionesClick(Sender: TObject);
+var
+  outputPath, pngPath: string;
+  AProcess: TProcess;
 begin
-  ShowMessage('Generando reporte de relaciones...');
-  // Lgica del reporte de relaciones
+  // Crear carpeta Root-Reportes si no existe
+  if not DirectoryExists('Root-Reportes') then
+    CreateDir('Root-Reportes');
+
+  // Procesar correos para generar relaciones (pasando la cola como parámetro)
+  ProcesarCorreosParaRelaciones(MatrizRelacionesGlobal, ColaCorreosGlobal);
+
+  // Ruta por defecto
+  SaveDialog.FileName := 'Root-Reportes/relaciones.dot';
+  if SaveDialog.Execute then
+  begin
+    outputPath := SaveDialog.FileName;
+
+    if MatrizRelacionesGlobal.tamanio > 0 then
+    begin
+      GenerarReporteRelaciones(MatrizRelacionesGlobal, outputPath);
+
+      // Generar PNG automáticamente
+      pngPath := ChangeFileExt(outputPath, '.png');
+      AProcess := TProcess.Create(nil);
+      try
+        AProcess.Executable := 'dot';
+        AProcess.Parameters.Add('-Tpng');
+        AProcess.Parameters.Add(outputPath);
+        AProcess.Parameters.Add('-o');
+        AProcess.Parameters.Add(pngPath);
+        AProcess.Options := [poWaitOnExit, poNoConsole];
+        AProcess.Execute;
+
+        ShowMessage('Reporte de relaciones generado:' + LineEnding +
+                   outputPath + LineEnding +
+                   'Imagen: ' + pngPath);
+      finally
+        AProcess.Free;
+      end;
+    end
+    else
+    begin
+      ShowMessage('No hay relaciones entre usuarios para reportar');
+    end;
+  end;
 end;
 
 procedure TfrmMenuRoot.btnReporteUsuariosClick(Sender: TObject);
