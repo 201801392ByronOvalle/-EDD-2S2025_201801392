@@ -13,11 +13,15 @@ digraph MatrizRelaciones {
 // Remitentes (cabecera columna izquierda)
   F0 [label="lgarcia@edd.com", fillcolor=lightgreen];
   F1 [label="mitzep@edd.com", fillcolor=lightgreen];
+  F2 [label="mshuttleworth@edd.com", fillcolor=lightgreen];
 
 // Celdas de relaciones (intersecciones)
-  N_1_3 [label="2", fillcolor=orange];
-  F1 -> N_1_3;
-  N_1_3 -> C3;
+  N_2_1 [label="2", fillcolor=orange];
+  F2 -> N_2_1;
+  N_2_1 -> C1;
+  N_1_0 [label="2", fillcolor=orange];
+  F1 -> N_1_0;
+  N_1_0 -> C0;
   N_1_1 [label="2", fillcolor=orange];
   F1 -> N_1_1;
   N_1_1 -> C1;
@@ -38,6 +42,7 @@ digraph MatrizRelaciones {
   C2 -> C3;
   R -> F0;
   F0 -> F1;
+  F1 -> F2;
 
 {rank=same; R;
   C0;
@@ -51,7 +56,10 @@ digraph MatrizRelaciones {
   N_0_2;
 }
 {rank=same; F1;
-  N_1_3;
+  N_1_0;
   N_1_1;
+}
+{rank=same; F2;
+  N_2_1;
 }
 }

@@ -181,13 +181,13 @@ begin
     end;
   end;
 
-   // 2. Reporte de Correos Programados (NUEVO)
+   // 2. Reporte de Correos Programados
   if not ColaVacia(ColaCorreosGlobal) then
   begin
     archivoCorreos := carpetaReportes + '/reporte_correos_programados.dot';
     if GenerarReporteCorreosProgramadosGraphviz(ColaCorreosGlobal, archivoCorreos) then
     begin
-      // Generar PNG automáticamente
+      // Generar PNG automaticamente
       AProcess := TProcess.Create(nil);
       try
         AProcess.Executable := 'dot';

@@ -101,6 +101,7 @@ var
 begin
   formVerCorreosProgramados := TfrmVerCorreosProgramados.Create(nil);
   try
+    formVerCorreosProgramados.SetUsuarioActual(UsuarioActual);
     formVerCorreosProgramados.ShowModal;
   finally
     formVerCorreosProgramados.Free;
