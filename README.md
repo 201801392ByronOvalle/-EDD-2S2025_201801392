@@ -28,3 +28,12 @@ Desarrollar un sistema de simulación de correos electrónicos utilizando estruc
 Todo con sus interfaces.
 
 ### Byron Andres Ovalle Flores 201801392
+
+**Realizo:**
+
+**En Usuario común**
+* Agendar Correo Programado
+* Visualizar correos Programados
+* Visualizar Reportería Correo Programado (Cola)
+
+Todo con sus interfaces.
