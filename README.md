@@ -31,6 +31,10 @@ Todo con sus interfaces.
 
 **Realizo:**
 
+**En Usuario Root**
+* Reporte de Relaciones(Destinatario - Remitente)
+* Estructura de Matriz Dispersa. 
+
 **En Usuario común**
 * Agendar Correo Programado
 * Visualizar correos Programados
