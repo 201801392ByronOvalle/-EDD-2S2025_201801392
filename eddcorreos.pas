@@ -5,7 +5,7 @@ unit EDDCorreos;
 interface
 
 uses
-  Classes, SysUtils, DateUtils;
+  Classes, SysUtils, DateUtils, Dialogs;
 
 type
   TCorreo = record

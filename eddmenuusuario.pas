@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   EDDEstructuras, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos,
-  EDDActualizarPerfil;
+  EDDActualizarPerfil, EDDProgramarCorreo;
 
 type
 
@@ -80,8 +80,19 @@ begin
 end;
 
 procedure TfrmMenuUsuario.btnProgramarCorreoClick(Sender: TObject);
+var
+  formProgramarCorreo: TfrmProgramarCorreo;
 begin
-  ShowMessage('Programar correo - Pendiente de implementar');
+  formProgramarCorreo := TfrmProgramarCorreo.Create(nil);
+  try
+    formProgramarCorreo.SetUsuarioActual(UsuarioActual);
+    if formProgramarCorreo.ShowModal = mrOk then
+    begin
+      ShowMessage('Correo programado correctamente');
+    end;
+  finally
+    formProgramarCorreo.Free;
+  end;
 end;
 
 procedure TfrmMenuUsuario.btnCorreosProgramadosClick(Sender: TObject);

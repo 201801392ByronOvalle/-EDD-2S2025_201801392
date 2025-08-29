@@ -1,7 +1,7 @@
 object frmMenuUsuario: TfrmMenuUsuario
-  Left = 890
+  Left = 964
   Height = 546
-  Top = 105
+  Top = 104
   Width = 418
   Caption = 'Menú de Usuario'
   ClientHeight = 546

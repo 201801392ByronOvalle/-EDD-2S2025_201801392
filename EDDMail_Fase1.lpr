@@ -10,9 +10,9 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, EDDMail, EDDEstructuras, EDDRegistro, EDDMenuRoot, EDDMenuUsuario,
-  EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos, 
-EDDActualizarPerfil, EDDCorreos;
+  Forms, datetimectrls, EDDMail, EDDEstructuras, EDDRegistro, EDDMenuRoot,
+  EDDMenuUsuario, EDDGlobal, EDDContactos, EDDAgregarContacto, EDDVerContactos,
+  EDDActualizarPerfil, EDDCorreos, EDDProgramarCorreo;
 
 {$R *.res}
 
@@ -30,6 +30,7 @@ begin
   Application.CreateForm(TfrmAgregarContacto, frmAgregarContacto);
   Application.CreateForm(TfrmVerContactos, frmVerContactos);
   Application.CreateForm(TfrmActualizarPerfil, frmActualizarPerfil);
+  Application.CreateForm(TfrmProgramarCorreo, frmProgramarCorreo);
   Application.Run;
 end.
 

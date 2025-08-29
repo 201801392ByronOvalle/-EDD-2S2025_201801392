@@ -111,6 +111,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EDDActualizarPerfil"/>
       </Unit>
+      <Unit>
+        <Filename Value="eddcorreos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="EDDCorreos"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

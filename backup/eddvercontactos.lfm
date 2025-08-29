@@ -6,7 +6,7 @@ object frmVerContactos: TfrmVerContactos
   Caption = 'Contactos del Usuario'
   ClientHeight = 240
   ClientWidth = 316
-  Color = 12618176
+  Color = clCream
   LCLVersion = '4.2.0.0'
   OnShow = FormShow
   object btnAnterior: TButton

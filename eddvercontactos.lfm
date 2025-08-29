@@ -1,7 +1,7 @@
 object frmVerContactos: TfrmVerContactos
-  Left = 974
+  Left = 1049
   Height = 240
-  Top = 202
+  Top = 184
   Width = 316
   Caption = 'Contactos del Usuario'
   ClientHeight = 240

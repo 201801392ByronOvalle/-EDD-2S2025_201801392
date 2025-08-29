@@ -25,6 +25,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="DateTimeCtrlsDsgn"/>
+      </Item>
+      <Item>
+        <PackageName Value="DateTimeCtrls"/>
+      </Item>
+      <Item>
         <PackageName Value="LCL"/>
       </Item>
     </RequiredPackages>
@@ -115,6 +121,13 @@
         <Filename Value="eddcorreos.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="EDDCorreos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="eddprogramarcorreo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmProgramarCorreo"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EDDProgramarCorreo"/>
       </Unit>
     </Units>
   </ProjectOptions>
