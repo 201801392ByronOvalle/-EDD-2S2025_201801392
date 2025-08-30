@@ -1,0 +1,17 @@
+digraph ListaCorreos {
+  rankdir=LR;
+  node [shape=record, style=filled, fillcolor=lightblue];
+N101 [label="Id: 101\nRemitente: soporte@edd.com\nEstado: no leído\nProgramado: no\nAsunto: Bienvenido Luis\nFecha: 2025-08-20\nMensaje: Hola Luis, tu cuenta ha sido creada exitosamente."];
+N101 -> N102 [dir=both];
+N102 [label="Id: 102\nRemitente: ventas@edd.com\nEstado: leído\nProgramado: no\nAsunto: Promociones del mes\nFecha: 2025-08-18\nMensaje: Estimado Luis, revisa nuestras promociones de agosto."];
+N102 -> N201 [dir=both];
+N201 [label="Id: 201\nRemitente: noticias@edd.com\nEstado: no leído\nProgramado: sí\nAsunto: Resumen semanal\nFecha: 2025-08-21\nMensaje: Hola Marcos, este es tu resumen semanal de actividad."];
+N201 -> N202 [dir=both];
+N202 [label="Id: 202\nRemitente: soporte@edd.com\nEstado: leído\nProgramado: no\nAsunto: Actualización de seguridad\nFecha: 2025-08-19\nMensaje: Por favor actualiza tu contraseña antes del 25 de agosto."];
+N202 -> N203 [dir=both];
+N203 [label="Id: 203\nRemitente: eventos@edd.com\nEstado: no leído\nProgramado: no\nAsunto: Invitación a webinar\nFecha: 2025-08-20\nMensaje: Participa en nuestro próximo webinar sobre nuevas tecnologías."];
+N203 -> N301 [dir=both];
+N301 [label="Id: 301\nRemitente: gkroah-hartman@linuxfoundation.org\nEstado: leído\nProgramado: no\nAsunto: Revisión de Kernel\nFecha: 2025-08-17\nMensaje: Greg, se adjunta la revisión del kernel para tu análisis."];
+N301 -> N302 [dir=both];
+N302 [label="Id: 302\nRemitente: soporte@edd.com\nEstado: no leído\nProgramado: no\nAsunto: Verificación de cuenta\nFecha: 2025-08-18\nMensaje: Confirma tu dirección de correo para activar funciones avanzadas."];
+}
