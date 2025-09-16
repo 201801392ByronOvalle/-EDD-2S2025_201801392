@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="Tarea2.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="207"/>
+        <CursorPos X="5" Y="240"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="2">
+      <Position>
+        <Filename Value="Tarea2.lpr"/>
+        <Caret Line="14" Column="56" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="Tarea2.lpr"/>
+        <Caret Line="31" Column="55" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="Tarea2.lpr"/>
+        <Caret Line="33" Column="49" TopLine="13"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

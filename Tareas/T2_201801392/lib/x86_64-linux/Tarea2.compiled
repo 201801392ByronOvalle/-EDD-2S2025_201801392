@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1625802185"/>
+  <Params Value="-MObjFPC -Scghi -Cg -O1 -gw3 -gl -l -vewnhibq -Fi/home/baof/Descargas/EDD_RE2/-EDD-2S2025_201801392/Tareas/T2_201801392/lib/x86_64-linux -Fu/home/baof/Descargas/EDD_RE2/-EDD-2S2025_201801392/Tareas/T2_201801392/ -FU/home/baof/Descargas/EDD_RE2/-EDD-2S2025_201801392/Tareas/T2_201801392/lib/x86_64-linux/ -FE/home/baof/Descargas/EDD_RE2/-EDD-2S2025_201801392/Tareas/T2_201801392/ -o/home/baof/Descargas/EDD_RE2/-EDD-2S2025_201801392/Tareas/T2_201801392/Tarea2 Tarea2.lpr"/>
+</CONFIG>
