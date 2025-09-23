@@ -5,7 +5,7 @@ unit edd_fase2;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, uPrincipalRoot;  // Cambiado aquí
 
 type
 
@@ -43,25 +43,27 @@ begin
   if (edtEmail.Text = 'root@edd.com') and (edtPassword.Text = 'root123') then
   begin
     ShowMessage('Bienvenido usuario root');
-    // Aquí abrirías el formulario principal para el usuario root
+    // Abrir formulario principal del root
+    frmPrincipalRoot := TfrmPrincipalRoot.Create(Application);
+    try
+      frmPrincipalRoot.ShowModal;
+    finally
+      frmPrincipalRoot.Free;
+    end;
   end
   else
   begin
-    // Buscar en la lista de usuarios estándar (implementar luego)
-    // Por ahora mostramos un mensaje de error
     ShowMessage('Credenciales incorrectas o usuario no existe');
   end;
 end;
 
 procedure TfrmLogin.btnRegistrarClick(Sender: TObject);
 begin
-  // Aquí abrirías el formulario de registro de nuevos usuarios
   ShowMessage('Funcionalidad de registro pendiente de implementar');
 end;
 
 procedure TfrmLogin.FormCreate(Sender: TObject);
 begin
-  // Configuración inicial del formulario
   Caption := 'EDDMail - Inicio de Sesión';
 end;
 

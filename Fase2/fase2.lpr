@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, edd_fase2
+  Forms, edd_fase2, uPrincipalRoot
   { you can add units after this };
 
 {$R *.res}
@@ -23,6 +23,7 @@ begin
   {$POP}
   Application.Initialize;
   Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TfrmPrincipalRoot, frmPrincipalRoot);
   Application.Run;
 end.
 
