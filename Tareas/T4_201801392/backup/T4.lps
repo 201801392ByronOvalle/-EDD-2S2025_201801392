@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="T4.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="270"/>
+        <CursorPos X="5" Y="303"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="8">
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="13" Column="42"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="27" Column="45" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="143" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="136" Column="38" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="198" TopLine="165"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="29" Column="36" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="30" Column="27" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="299" Column="46" TopLine="283"/>
+      </Position>
+      <Position>
+        <Filename Value="T4.lpr"/>
+        <Caret Line="11" Column="48"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

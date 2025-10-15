@@ -1,0 +1,28 @@
+object FormBandejaEntrada: TFormBandejaEntrada
+  Left = 858
+  Height = 284
+  Top = 215
+  Width = 503
+  Caption = 'Bandeja Entrada'
+  ClientHeight = 284
+  ClientWidth = 503
+  LCLVersion = '4.2.0.0'
+  OnShow = FormShow
+  object btnVolver: TButton
+    Left = 376
+    Height = 33
+    Top = 16
+    Width = 104
+    Caption = 'Volver'
+    TabOrder = 0
+    OnClick = btnVolverClick
+  end
+  object ListViewCorreos: TListView
+    Left = 32
+    Height = 192
+    Top = 72
+    Width = 448
+    Columns = <>
+    TabOrder = 1
+  end
+end

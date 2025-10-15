@@ -34,10 +34,49 @@
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="edd_fase2.pas"/>
+        <Filename Value="proyectof2.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmLogin"/>
+        <ComponentName Value="FormLogin"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ProyectoF2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umenuroot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMenuRoot"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UMenuRoot"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unodolista.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UNodoLista"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulistasimple.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UListaSimple"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucolacorreos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UColaCorreos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umenuusuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMenuUsuario"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UMenuUsuario"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ubandejaentrada.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormBandejaEntrada"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UBandejaEntrada"/>
       </Unit>
     </Units>
   </ProjectOptions>

@@ -1,0 +1,9 @@
+digraph Usuarios {
+    rankdir=LR;
+    node [shape=record];
+
+    usuario1 [label="ID: 1\nNombre: Carlos Alberto Gomez Martinez\nCorreo: carlos.alberto@usac.com\nEdad: 20"];
+    usuario2 [label="ID: 2\nNombre: Ana Lucia Martinez Lopez\nCorreo: ana.lucia@usac.com\nEdad: 20"];
+
+    usuario1 -> usuario2;
+}

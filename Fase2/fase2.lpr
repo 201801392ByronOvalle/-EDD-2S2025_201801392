@@ -10,8 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, edd_fase2, uPrincipalRoot
-  { you can add units after this };
+  Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
+UBandejaEntrada;
 
 {$R *.res}
 
@@ -22,8 +22,10 @@ begin
   Application.MainFormOnTaskbar:=True;
   {$POP}
   Application.Initialize;
-  Application.CreateForm(TfrmLogin, frmLogin);
-  Application.CreateForm(TfrmPrincipalRoot, frmPrincipalRoot);
+  Application.CreateForm(TFormLogin, FormLogin);
+  Application.CreateForm(TFormMenuRoot, FormMenuRoot);
+  Application.CreateForm(TFormMenuUsuario, FormMenuUsuario);
+  Application.CreateForm(TFormBandejaEntrada, FormBandejaEntrada);
   Application.Run;
 end.
 
