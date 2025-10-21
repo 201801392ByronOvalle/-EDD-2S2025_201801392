@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="fase2.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="31" Y="13"/>
+        <UsageCount Value="40"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="proyectof2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormLogin"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ProyectoF2"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="45" Y="16"/>
+        <UsageCount Value="40"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umenuroot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMenuRoot"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UMenuRoot"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="84"/>
+        <CursorPos X="5" Y="102"/>
+        <UsageCount Value="40"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unodolista.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UNodoLista"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="28"/>
+        <UsageCount Value="40"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulistasimple.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UListaSimple"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="135"/>
+        <CursorPos X="5" Y="168"/>
+        <UsageCount Value="40"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucolacorreos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UColaCorreos"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="154"/>
+        <CursorPos X="5" Y="187"/>
+        <UsageCount Value="34"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umenuusuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMenuUsuario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UMenuUsuario"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="7"/>
+        <CursorPos X="17" Y="9"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ubandejaentrada.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormBandejaEntrada"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UBandejaEntrada"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="84"/>
+        <CursorPos X="5" Y="117"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucontrollog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UControlLog"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="107"/>
+        <CursorPos X="27" Y="110"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformcontrollog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmControlLogeo"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFormControlLog"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="106"/>
+        <CursorPos X="5" Y="139"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="ubandejaentrada.pas"/>
+        <Caret Line="39" Column="35" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuusuario.pas"/>
+        <Caret Line="71" Column="5" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuroot.pas"/>
+        <Caret Line="235" Column="5" TopLine="202"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuroot.pas"/>
+        <Caret Line="237" Column="5" TopLine="204"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuroot.pas"/>
+        <Caret Line="236" Column="5" TopLine="203"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuroot.pas"/>
+        <Caret Line="180"/>
+      </Position>
+      <Position>
+        <Filename Value="ucontrollog.pas"/>
+        <Caret Line="13" Column="48"/>
+      </Position>
+      <Position>
+        <Filename Value="proyectof2.pas"/>
+        <Caret Line="149" Column="8" TopLine="116"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="11" Column="46"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="15" Column="34"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="16" Column="34"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="18" Column="65"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="37" Column="3" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="43" Column="3" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="48" Column="3" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="49" Column="3" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="50" Column="3" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="52" Column="3" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="44" Column="61" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="14" Column="42"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="15" Column="4"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="113" Column="38" TopLine="107"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuroot.pas"/>
+        <Caret Line="9" Column="59"/>
+      </Position>
+      <Position>
+        <Filename Value="proyectof2.pas"/>
+        <Caret Line="16" Column="45"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="14" Column="34"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="121" Column="47" TopLine="107"/>
+      </Position>
+      <Position>
+        <Filename Value="uformcontrollog.pas"/>
+        <Caret Line="139" Column="5" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuroot.pas"/>
+        <Caret Line="102" Column="5" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuusuario.pas"/>
+        <Caret Line="115" Column="23" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="umenuusuario.pas"/>
+        <Caret Line="15" Column="50"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

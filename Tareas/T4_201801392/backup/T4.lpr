@@ -256,12 +256,12 @@ procedure T4_201801392.DoRun;
 var
   Graph: TUndirectedGraph;
 begin
-  WriteLn('=== TAREA #4 - GRAFO NO DIRIGIDO ===');
+  WriteLn('=== TAREA #4 - Grafo no dirigido ===');
   WriteLn;
 
   Graph := TUndirectedGraph.Create;
   try
-    WriteLn('Agregando ciudades...');
+    WriteLn('Ciudades NOdo');
     Graph.AddCity('A');
     Graph.AddCity('B');
     Graph.AddCity('C');
@@ -269,7 +269,7 @@ begin
 
     WriteLn;
 
-    WriteLn('Agregando conexiones...');
+    WriteLn('Conexiones agregadas');
     Graph.AddConnection('A', 'B');
     Graph.AddConnection('A', 'C');
     Graph.AddConnection('B', 'D');
@@ -286,9 +286,6 @@ begin
   finally
     Graph.Free;
   end;
-
-  WriteLn('Presione ENTER para salir...');
-  ReadLn;
 
   Terminate;
 end;

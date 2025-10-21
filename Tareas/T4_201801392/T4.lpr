@@ -227,7 +227,7 @@ begin
     Lines.SaveToFile(Filename + '.dot');
     WriteLn('Archivo Graphviz guardado como: ', Filename + '.dot');
 
-    // Generar PNG automáticamente
+    // Gennerar el png automaticamentae
     AProcess := TProcess.Create(nil);
     try
       AProcess.Executable := 'dot';
