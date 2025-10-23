@@ -6,11 +6,11 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  UControlLog;
+  UControlLog, fpjson, jsonparser;  // Agregar fpjson y jsonparser aquí
 
 type
 
-  { TFormControlLog }
+  { TfrmControlLogeo }
 
   TfrmControlLogeo = class(TForm)
     btnExportarJSON: TButton;
@@ -35,7 +35,7 @@ implementation
 
 {$R *.lfm}
 
-{ TFormControlLog }
+{ TfrmControlLogeo }
 
 procedure TfrmControlLogeo.FormShow(Sender: TObject);
 begin

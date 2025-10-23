@@ -89,6 +89,7 @@
         <Filename Value="uformcontrollog.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmControlLogeo"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormControlLog"/>
       </Unit>

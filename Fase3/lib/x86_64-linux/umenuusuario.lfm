@@ -1,7 +1,7 @@
 object FormMenuUsuario: TFormMenuUsuario
-  Left = 1433
+  Left = 772
   Height = 527
-  Top = 124
+  Top = 181
   Width = 372
   Caption = 'Menu Usuario'
   ClientHeight = 527

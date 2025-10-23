@@ -113,9 +113,6 @@ end;
 
 procedure TFormMenuRoot.btnSalirClick(Sender: TObject);
 begin
-  // Registrar salida del usuario root
-  if Assigned(ControlLogGlobal) then
-    ControlLogGlobal.RegistrarSalida('root@edd.com');
   Close;
 end;
 

@@ -1,0 +1,41 @@
+{
+    "Usuarios": [
+        {
+            "Usuario": "lgarcia",
+            "Contactos": [
+                "mitzep",
+                "mshuttleworth"
+            ]
+        },
+        {
+            "Usuario": "smejia",
+            "Contactos": [
+                "lgarcia",
+                "mitzep"
+            ]
+        },
+        {
+            "Usuario": "bfox",
+            "Contactos": [
+                "smejia",
+                "jcorbet"
+            ]
+        },
+        {
+            "Usuario": "mbaker",
+            "Contactos": [
+                "lgarcia",
+                "imurdock",
+                "mitzep"
+            ]
+        },
+        {
+            "Usuario": "mitzep",
+            "Contactos": [
+                "gkroah-hartman",
+                "jcorbet"
+            ]
+        }
+        
+    ]
+}

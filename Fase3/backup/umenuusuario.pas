@@ -5,7 +5,8 @@ unit UMenuUsuario;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, UBandejaEntrada;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, UBandejaEntrada,
+  UControlLog;
 
 type
 

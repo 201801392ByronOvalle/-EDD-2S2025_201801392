@@ -74,8 +74,8 @@ begin
   // Validar credenciales
   if ValidarCredenciales(usuario, contrasenia) then
   begin
-    // Registrar entrada en el log
-    if Assigned(ControlLogGlobal) then
+    // Registrar entrada en el log SOLO para usuarios que NO sean root
+    if Assigned(ControlLogGlobal) and (usuario <> 'root@edd.com') then
       ControlLogGlobal.RegistrarEntrada(usuario);
 
     if usuario = 'root@edd.com' then

@@ -199,6 +199,14 @@
       "estado": "NL",
       "asunto": "Actualización del roadmap",
       "mensaje": "He actualizado el roadmap del proyecto. Revisa la sección de entregas."
+    },
+    {
+      "id": 26,
+      "remitente": "lgarcia@edd.com",
+      "destinatario": "mitzep@edd.com",
+      "estado": "NL",
+      "asunto": "Para descargar",
+      "mensaje": "ABCABCD ESTA PARA DESCARGAR"
     }
   ]
 }

@@ -8,7 +8,7 @@
         <Filename Value="fase2.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="31" Y="13"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -19,8 +19,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ProyectoF2"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="45" Y="16"/>
-        <UsageCount Value="40"/>
+        <TopLine Value="81"/>
+        <CursorPos X="5" Y="113"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -31,10 +32,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UMenuRoot"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="84"/>
-        <CursorPos X="5" Y="102"/>
-        <UsageCount Value="40"/>
+        <TopLine Value="99"/>
+        <CursorPos X="6" Y="115"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -44,7 +46,7 @@
         <UnitName Value="UNodoLista"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="28"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
       </Unit>
       <Unit>
         <Filename Value="ulistasimple.pas"/>
@@ -53,7 +55,7 @@
         <EditorIndex Value="8"/>
         <TopLine Value="135"/>
         <CursorPos X="5" Y="168"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -63,7 +65,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="154"/>
         <CursorPos X="5" Y="187"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -73,10 +75,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UMenuUsuario"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
+        <TopLine Value="19"/>
         <CursorPos X="17" Y="9"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -90,7 +92,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="84"/>
         <CursorPos X="5" Y="117"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -101,7 +103,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="107"/>
         <CursorPos X="27" Y="110"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>

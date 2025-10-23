@@ -1,7 +1,7 @@
 object frmControlLogeo: TfrmControlLogeo
-  Left = 840
+  Left = 754
   Height = 280
-  Top = 194
+  Top = 409
   Width = 598
   Caption = 'Control de Logeo'
   ClientHeight = 280

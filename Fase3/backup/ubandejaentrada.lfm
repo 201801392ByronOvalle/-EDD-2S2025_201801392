@@ -1,7 +1,7 @@
 object FormBandejaEntrada: TFormBandejaEntrada
-  Left = 858
+  Left = 728
   Height = 284
-  Top = 215
+  Top = 425
   Width = 503
   Caption = 'Bandeja Entrada'
   ClientHeight = 284
