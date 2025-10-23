@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
-UBandejaEntrada, UControlLog;
+UBandejaEntrada, UControlLog, UFormControlLog;
 
 {$R *.res}
 
@@ -26,6 +26,7 @@ begin
   Application.CreateForm(TFormMenuRoot, FormMenuRoot);
   Application.CreateForm(TFormMenuUsuario, FormMenuUsuario);
   Application.CreateForm(TFormBandejaEntrada, FormBandejaEntrada);
+  Application.CreateForm(TfrmControlLogeo, frmControlLogeo);
   Application.Run;
 end.
 

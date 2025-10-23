@@ -7,8 +7,9 @@
       <Unit>
         <Filename Value="fase2.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="31" Y="13"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -21,7 +22,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="81"/>
         <CursorPos X="5" Y="113"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -32,11 +33,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UMenuRoot"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="99"/>
-        <CursorPos X="6" Y="115"/>
-        <UsageCount Value="41"/>
+        <TopLine Value="290"/>
+        <CursorPos X="5" Y="318"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -46,26 +46,26 @@
         <UnitName Value="UNodoLista"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="28"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="43"/>
       </Unit>
       <Unit>
         <Filename Value="ulistasimple.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UListaSimple"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="135"/>
         <CursorPos X="5" Y="168"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ucolacorreos.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UColaCorreos"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="154"/>
         <CursorPos X="5" Y="187"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -75,10 +75,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UMenuUsuario"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="19"/>
         <CursorPos X="17" Y="9"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -89,10 +89,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UBandejaEntrada"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="84"/>
         <CursorPos X="5" Y="117"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -100,39 +100,38 @@
         <Filename Value="ucontrollog.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UControlLog"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="107"/>
         <CursorPos X="27" Y="110"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="uformcontrollog.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmControlLogeo"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormControlLog"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="106"/>
         <CursorPos X="5" Y="139"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="ugrafocontactos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UGrafoContactos"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="129"/>
+        <CursorPos X="32" Y="33"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="ubandejaentrada.pas"/>
-        <Caret Line="39" Column="35" TopLine="26"/>
-      </Position>
-      <Position>
-        <Filename Value="umenuusuario.pas"/>
-        <Caret Line="71" Column="5" TopLine="58"/>
-      </Position>
-      <Position>
-        <Filename Value="umenuroot.pas"/>
-        <Caret Line="235" Column="5" TopLine="202"/>
-      </Position>
       <Position>
         <Filename Value="umenuroot.pas"/>
         <Caret Line="237" Column="5" TopLine="204"/>
@@ -240,6 +239,18 @@
       <Position>
         <Filename Value="umenuusuario.pas"/>
         <Caret Line="15" Column="50"/>
+      </Position>
+      <Position>
+        <Filename Value="ugrafocontactos.pas"/>
+        <Caret Line="13" Column="36"/>
+      </Position>
+      <Position>
+        <Filename Value="ugrafocontactos.pas"/>
+        <Caret Line="131" Column="47" TopLine="109"/>
+      </Position>
+      <Position>
+        <Filename Value="ugrafocontactos.pas"/>
+        <Caret Line="150" Column="26" TopLine="134"/>
       </Position>
     </JumpHistory>
     <RunParams>

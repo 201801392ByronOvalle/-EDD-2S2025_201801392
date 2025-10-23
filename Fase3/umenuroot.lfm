@@ -1,5 +1,5 @@
 object FormMenuRoot: TFormMenuRoot
-  Left = 911
+  Left = 1166
   Height = 422
   Top = 168
   Width = 320

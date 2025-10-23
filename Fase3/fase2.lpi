@@ -93,6 +93,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormControlLog"/>
       </Unit>
+      <Unit>
+        <Filename Value="ugrafocontactos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UGrafoContactos"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

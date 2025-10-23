@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser;
+  UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
+  UGrafoContactos;
 
 type
 
@@ -17,7 +18,7 @@ type
     btnComunidades: TButton;
     btnReporteComunidades: TButton;
     btnVerMensajesComunidad: TButton;
-    btnControlLog: TButton;  // Nuevo botón
+    btnControlLog: TButton;
     btnSalir: TButton;
     Label1: TLabel;
     OpenDialog1: TOpenDialog;
@@ -26,7 +27,7 @@ type
     procedure btnReporteComunidadesClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
     procedure btnVerMensajesComunidadClick(Sender: TObject);
-    procedure btnControlLogClick(Sender: TObject);  // Nuevo método
+    procedure btnControlLogClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -76,10 +77,17 @@ begin
         ShowMessage('Carga de correos completada exitosamente.' + sLineBreak +
                    'Correos cargados: ' + IntToStr(ColaCorreosGlobal.Count));
       end
+      else if EsArchivoContactos(OpenDialog1.FileName) then
+      begin
+        CargarContactosDesdeJSON(OpenDialog1.FileName);
+        ShowMessage('Carga de contactos completada exitosamente.' + sLineBreak +
+                   'Contactos cargados en el grafo.' + sLineBreak +
+                   GrafoContactosGlobal.ToString);
+      end
       else
       begin
         ShowMessage('El archivo no coincide con los patrones esperados.' + sLineBreak +
-                   'Nombres esperados: usuarios.json, correos.json');
+                   'Nombres esperados: usuarios.json, correos.json, contactos.json');
       end;
     except
       on E: Exception do
@@ -232,6 +240,73 @@ begin
       else
       begin
         ShowMessage('El archivo no contiene una sección "correos" válida.');
+      end;
+
+    finally
+      JSONData.Free;
+    end;
+  finally
+    FileStream.Free;
+  end;
+end;
+
+function TFormMenuRoot.EsArchivoContactos(NombreArchivo: string): Boolean;
+var
+  Nombre: string;
+begin
+  Nombre := ExtractFileName(LowerCase(NombreArchivo));
+  // Verificar si el nombre contiene "contactos" o "contacts"
+  Result := (Pos('contactos', Nombre) > 0) or (Pos('contacts', Nombre) > 0);
+end;
+
+procedure TFormMenuRoot.CargarContactosDesdeJSON(ArchivoJSON: string);
+var
+  JSONData: TJSONData;
+  JSONObject: TJSONObject;
+  UsuariosArray: TJSONArray;
+  I, J: Integer;
+  UsuarioObj: TJSONObject;
+  ContactosArray: TJSONArray;
+  UsuarioNombre: string;
+  FileStream: TFileStream;
+begin
+  // Limpiar grafo existente
+  if Assigned(GrafoContactosGlobal) then
+    GrafoContactosGlobal.LimpiarGrafo;
+
+  // Cargar y parsear JSON
+  FileStream := TFileStream.Create(ArchivoJSON, fmOpenRead);
+  try
+    JSONData := GetJSON(FileStream);
+    try
+      JSONObject := TJSONObject(JSONData);
+
+      // Cargar usuarios y contactos
+      UsuariosArray := JSONObject.Get('Usuarios', TJSONArray(nil)) as TJSONArray;
+      if UsuariosArray <> nil then
+      begin
+        for I := 0 to UsuariosArray.Count - 1 do
+        begin
+          UsuarioObj := UsuariosArray.Objects[I];
+          UsuarioNombre := UsuarioObj.Get('Usuario', '');
+
+          // Agregar usuario al grafo (usamos I+1 como ID temporal)
+          GrafoContactosGlobal.AgregarUsuario(I + 1, UsuarioNombre, UsuarioNombre);
+
+          // Agregar contactos
+          ContactosArray := UsuarioObj.Get('Contactos', TJSONArray(nil)) as TJSONArray;
+          if ContactosArray <> nil then
+          begin
+            for J := 0 to ContactosArray.Count - 1 do
+            begin
+              GrafoContactosGlobal.AgregarContacto(UsuarioNombre, ContactosArray.Strings[J]);
+            end;
+          end;
+        end;
+      end
+      else
+      begin
+        ShowMessage('El archivo no contiene una sección "Usuarios" válida.');
       end;
 
     finally

@@ -7,48 +7,38 @@ interface
 uses
   Classes, SysUtils;
 
-// estructuras y tipos para el grafo
-
 type
-  // Puntero al nodo del grafo (usuario)
+  // Nodo del grafo para usuarios
   PNodoGrafo = ^TNodoGrafo;
-
-  // Registro de nodo de usuario
   TNodoGrafo = record
     ID: Integer;
     Nombre: string;
     Usuario: string;
-    Adyacentes: array of PNodoGrafo;
+    Adyacentes: array of PNodoGrafo; // Lista de contactos
   end;
 
-  // Clase principal del grafo no dirigido
+  // Clase del grafo no dirigido
   TGrafoContactos = class
   private
-    FNodos: array of PNodoGrafo;  // Conjunto de nodos
-    FCount: Integer;              // Número total de usuarios
-
+    FNodos: array of PNodoGrafo;
+    FCount: Integer;
     function BuscarNodoPorUsuario(Usuario: string): PNodoGrafo;
-
   public
     constructor Create;
     destructor Destroy; override;
-
     procedure AgregarUsuario(ID: Integer; Nombre, Usuario: string);
     procedure AgregarContacto(Usuario1, Usuario2: string);
     function ObtenerNodoPorUsuario(Usuario: string): PNodoGrafo;
     procedure LimpiarGrafo;
     function ToString: string;
-
     property Count: Integer read FCount;
   end;
 
-// Instancia global del grafo
 var
   GrafoContactosGlobal: TGrafoContactos;
 
 implementation
 
-// Constructor
 constructor TGrafoContactos.Create;
 begin
   inherited Create;
@@ -62,59 +52,65 @@ begin
   inherited Destroy;
 end;
 
-// AgregarUsuario: añade un nuevo nodo al grafo
 procedure TGrafoContactos.AgregarUsuario(ID: Integer; Nombre, Usuario: string);
 var
   NuevoNodo: PNodoGrafo;
 begin
+  // Verificar si el usuario ya existe
   if BuscarNodoPorUsuario(Usuario) <> nil then Exit;
 
+  // Crear nuevo nodo
   New(NuevoNodo);
   NuevoNodo^.ID := ID;
   NuevoNodo^.Nombre := Nombre;
   NuevoNodo^.Usuario := Usuario;
   SetLength(NuevoNodo^.Adyacentes, 0);
 
+  // Agregar al grafo
   SetLength(FNodos, Length(FNodos) + 1);
   FNodos[High(FNodos)] := NuevoNodo;
   Inc(FCount);
 end;
 
-// AgregarContacto: crea una relación bidireccional
 procedure TGrafoContactos.AgregarContacto(Usuario1, Usuario2: string);
 var
   Nodo1, Nodo2: PNodoGrafo;
+  I: Integer;
 begin
   Nodo1 := BuscarNodoPorUsuario(Usuario1);
   Nodo2 := BuscarNodoPorUsuario(Usuario2);
 
   if (Nodo1 = nil) or (Nodo2 = nil) then Exit;
 
+  // Agregar Usuario2 a la lista de contactos de Usuario1
   SetLength(Nodo1^.Adyacentes, Length(Nodo1^.Adyacentes) + 1);
   Nodo1^.Adyacentes[High(Nodo1^.Adyacentes)] := Nodo2;
 
+  // Agregar Usuario1 a la lista de contactos de Usuario2 (grafo no dirigido)
   SetLength(Nodo2^.Adyacentes, Length(Nodo2^.Adyacentes) + 1);
   Nodo2^.Adyacentes[High(Nodo2^.Adyacentes)] := Nodo1;
 end;
 
-// BuscarNodoPorUsuario: devuelve el puntero del nodo
 function TGrafoContactos.BuscarNodoPorUsuario(Usuario: string): PNodoGrafo;
 var
   I: Integer;
 begin
   Result := nil;
   for I := 0 to High(FNodos) do
+  begin
     if FNodos[I]^.Usuario = Usuario then
-      Exit(FNodos[I]);
+    begin
+      Result := FNodos[I];
+      Exit;
+    end;
+  end;
 end;
 
-// ObtenerNodoPorUsuario: wrapper del buscador interno
 function TGrafoContactos.ObtenerNodoPorUsuario(Usuario: string): PNodoGrafo;
 begin
   Result := BuscarNodoPorUsuario(Usuario);
 end;
 
-// LimpiarGrafo: libera toda la memoria del grafo
 procedure TGrafoContactos.LimpiarGrafo;
 var
   I: Integer;
@@ -128,7 +124,6 @@ begin
   FCount := 0;
 end;
 
-// ToString: devuelve una representación legible del grafo
 function TGrafoContactos.ToString: string;
 var
   I, J: Integer;
@@ -148,7 +143,9 @@ begin
       end;
     end
     else
+    begin
       Result := Result + 'Sin contactos';
+    end;
     Result := Result + sLineBreak;
   end;
 end;
@@ -161,4 +158,3 @@ finalization
     GrafoContactosGlobal.Free;
 
 end.
-
