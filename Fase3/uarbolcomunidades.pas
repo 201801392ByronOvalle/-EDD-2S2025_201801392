@@ -8,13 +8,19 @@ uses
   Classes, SysUtils, UListaSimple;
 
 type
+  // Registro para almacenar cada mensaje
+  TMensajeComunidad = record
+    Autor: string;
+    Fecha: TDateTime;
+    Mensaje: string;
+  end;
+
   // Nodo del árbol BST para comunidades
   PNodoComunidad = ^TNodoComunidad;
   TNodoComunidad = record
     Nombre: string;
     FechaCreacion: TDateTime;
-    MensajesPublicados: Integer;
-    Usuarios: array of string; // Lista de usuarios en la comunidad
+    Mensajes: array of TMensajeComunidad; // Array de mensajes
     Izquierdo, Derecho: PNodoComunidad;
   end;
 
@@ -33,8 +39,9 @@ type
     procedure InsertarComunidad(Nombre: string);
     function BuscarComunidad(Nombre: string): PNodoComunidad;
     function ExisteComunidad(Nombre: string): Boolean;
-    procedure AgregarUsuarioAComunidad(NombreComunidad, EmailUsuario: string);
+    procedure AgregarMensajeAComunidad(NombreComunidad, Autor, Mensaje: string);
     function ObtenerComunidades: TStringList;
+    function ObtenerMensajesComunidad(NombreComunidad: string): TStringList;
     procedure LimpiarArbol;
   end;
 
@@ -60,8 +67,7 @@ begin
   New(Result);
   Result^.Nombre := Nombre;
   Result^.FechaCreacion := Now;
-  Result^.MensajesPublicados := 0;
-  SetLength(Result^.Usuarios, 0);
+  SetLength(Result^.Mensajes, 0);
   Result^.Izquierdo := nil;
   Result^.Derecho := nil;
 end;
@@ -107,24 +113,22 @@ begin
   Result := BuscarComunidad(Nombre) <> nil;
 end;
 
-procedure TArbolComunidades.AgregarUsuarioAComunidad(NombreComunidad, EmailUsuario: string);
+procedure TArbolComunidades.AgregarMensajeAComunidad(NombreComunidad, Autor, Mensaje: string);
 var
   Comunidad: PNodoComunidad;
-  I: Integer;
+  NuevoMensaje: TMensajeComunidad;
 begin
   Comunidad := BuscarComunidad(NombreComunidad);
   if Comunidad = nil then Exit;
 
-  // Verificar si el usuario ya está en la comunidad
-  for I := 0 to High(Comunidad^.Usuarios) do
-  begin
-    if Comunidad^.Usuarios[I] = EmailUsuario then
-      Exit; // Usuario ya está en la comunidad
-  end;
+  // Crear nuevo mensaje
+  NuevoMensaje.Autor := Autor;
+  NuevoMensaje.Fecha := Now;
+  NuevoMensaje.Mensaje := Mensaje;
 
-  // Agregar usuario a la comunidad
-  SetLength(Comunidad^.Usuarios, Length(Comunidad^.Usuarios) + 1);
-  Comunidad^.Usuarios[High(Comunidad^.Usuarios)] := EmailUsuario;
+  // Agregar mensaje a la comunidad
+  SetLength(Comunidad^.Mensajes, Length(Comunidad^.Mensajes) + 1);
+  Comunidad^.Mensajes[High(Comunidad^.Mensajes)] := NuevoMensaje;
 end;
 
 procedure TArbolComunidades.InOrdenRecursivo(Nodo: PNodoComunidad; var Resultado: TStringList);
@@ -142,13 +146,42 @@ begin
   InOrdenRecursivo(FRaiz, Result);
 end;
 
+function TArbolComunidades.ObtenerMensajesComunidad(NombreComunidad: string): TStringList;
+var
+  Comunidad: PNodoComunidad;
+  I: Integer;
+begin
+  Result := TStringList.Create;
+  Comunidad := BuscarComunidad(NombreComunidad);
+
+  if Comunidad = nil then
+  begin
+    Result.Add('La comunidad no existe.');
+    Exit;
+  end;
+
+  if Length(Comunidad^.Mensajes) = 0 then
+  begin
+    Result.Add('No hay mensajes en esta comunidad.');
+    Exit;
+  end;
+
+  for I := 0 to High(Comunidad^.Mensajes) do
+  begin
+    Result.Add('[' + FormatDateTime('dd/mm/yyyy hh:nn', Comunidad^.Mensajes[I].Fecha) + '] ' +
+               Comunidad^.Mensajes[I].Autor + ':' + sLineBreak +
+               Comunidad^.Mensajes[I].Mensaje + sLineBreak +
+               '────────────────────');
+  end;
+end;
+
 procedure TArbolComunidades.LimpiarRecursivo(Nodo: PNodoComunidad);
 begin
   if Nodo = nil then Exit;
 
   LimpiarRecursivo(Nodo^.Izquierdo);
   LimpiarRecursivo(Nodo^.Derecho);
-  SetLength(Nodo^.Usuarios, 0);
+  SetLength(Nodo^.Mensajes, 0);
   Dispose(Nodo);
 end;
 

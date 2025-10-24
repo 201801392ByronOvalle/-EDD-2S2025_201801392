@@ -15,7 +15,6 @@ type
 
   TFormMenuUsuario = class(TForm)
     btnBandejaEntrada: TButton;
-    btnPublicarComunidad: TButton;
     btnEnviarCorreo: TButton;
     btnBorradores: TButton;
     btnFavoritos: TButton;

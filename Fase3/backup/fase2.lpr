@@ -11,8 +11,9 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
-UBandejaEntrada, UControlLog, UFormControlLog, UGrafoContactos,
-UFormAgregarContacto, UFormContactos, UArbolComunidades, UFormComunidades;
+  UBandejaEntrada, UControlLog, UFormControlLog, UGrafoContactos,
+  UFormAgregarContacto, UFormContactos, UArbolComunidades, UFormComunidades,
+  UFormPublicarMensaje, UFormVerMensajesComunidad;
 
 {$R *.res}
 
@@ -31,6 +32,8 @@ begin
   Application.CreateForm(TfrmAgregarContacto, frmAgregarContacto);
   Application.CreateForm(TfrmContactos, frmContactos);
   Application.CreateForm(TfrmComunidades, frmComunidades);
+  Application.CreateForm(TfrmPublicarMensaje, frmPublicarMensaje);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 

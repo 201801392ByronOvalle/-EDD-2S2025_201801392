@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
-  UGrafoContactos,  UFormComunidades, UArbolComunidades;
+  UGrafoContactos,  UFormComunidades, UArbolComunidades, UFormVerMensajesComunidad;
 
 type
 
@@ -16,7 +16,6 @@ type
   TFormMenuRoot = class(TForm)
     btnCargaMasiva: TButton;
     btnComunidades: TButton;
-    btnReporteComunidades: TButton;
     btnVerMensajesComunidad: TButton;
     btnControlLog: TButton;
     btnSalir: TButton;
@@ -25,7 +24,6 @@ type
     OpenDialog1: TOpenDialog;
     procedure btnCargaMasivaClick(Sender: TObject);
     procedure btnComunidadesClick(Sender: TObject);
-    procedure btnReporteComunidadesClick(Sender: TObject);
     procedure btnReporteContactosClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
     procedure btnVerMensajesComunidadClick(Sender: TObject);
@@ -117,11 +115,6 @@ begin
   frmControlLogeo.Free;
 end;
 
-procedure TFormMenuRoot.btnReporteComunidadesClick(Sender: TObject);
-begin
-  ShowMessage('Funcionalidad de Reporte de Comunidades en desarrollo...');
-end;
-
 procedure TFormMenuRoot.btnReporteContactosClick(Sender: TObject);
 begin
   GenerarReporteContactos;
@@ -129,7 +122,10 @@ end;
 
 procedure TFormMenuRoot.btnVerMensajesComunidadClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Ver Mensajes de Comunidad en desarrollo...');
+  // Mostrar formulario para ver mensajes de comunidades
+  frmVerMensajesComunidad := TfrmVerMensajesComunidad.Create(Application);
+  frmVerMensajesComunidad.ShowModal;
+  frmVerMensajesComunidad.Free;
 end;
 
 procedure TFormMenuRoot.btnSalirClick(Sender: TObject);

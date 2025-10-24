@@ -10,7 +10,7 @@ object frmPublicarMensaje: TfrmPublicarMensaje
   LCLVersion = '4.2.0.0'
   OnShow = FormShow
   object Label1: TLabel
-    Left = 152
+    Left = 48
     Height = 19
     Top = 20
     Width = 115

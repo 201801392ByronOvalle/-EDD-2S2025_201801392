@@ -132,8 +132,7 @@ begin
   if Nodo = nil then Exit;
 
   InOrdenRecursivo(Nodo^.Izquierdo, Resultado);
-  Resultado.Add(Nodo^.Nombre + ' (Creada: ' + FormatDateTime('dd/mm/yyyy', Nodo^.FechaCreacion) +
-                ', Usuarios: ' + IntToStr(Length(Nodo^.Usuarios)) + ')');
+  Resultado.Add(Nodo^.Nombre);
   InOrdenRecursivo(Nodo^.Derecho, Resultado);
 end;
 

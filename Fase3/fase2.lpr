@@ -13,7 +13,7 @@ uses
   Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
   UBandejaEntrada, UControlLog, UFormControlLog, UGrafoContactos,
   UFormAgregarContacto, UFormContactos, UArbolComunidades, UFormComunidades,
-  UFormPublicarMensaje;
+  UFormPublicarMensaje, UFormVerMensajesComunidad;
 
 {$R *.res}
 

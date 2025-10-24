@@ -133,6 +133,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormPublicarMensaje"/>
       </Unit>
+      <Unit>
+        <Filename Value="uformvermensajescomunidad.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmVerMensajesComunidad"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFormVerMensajesComunidad"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
