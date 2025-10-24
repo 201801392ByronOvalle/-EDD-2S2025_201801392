@@ -112,6 +112,19 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormContactos"/>
       </Unit>
+      <Unit>
+        <Filename Value="uarbolcomunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UArbolComunidades"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformcomunidades.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmComunidades"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFormComunidades"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

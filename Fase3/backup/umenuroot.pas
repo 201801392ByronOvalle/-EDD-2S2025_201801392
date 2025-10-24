@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
-  UGrafoContactos;
+  UGrafoContactos,  UFormComunidades, UArbolComunidades;
 
 type
 
@@ -39,7 +39,7 @@ type
     function EsArchivoUsuarios(NombreArchivo: string): Boolean;
     function EsArchivoCorreos(NombreArchivo: string): Boolean;
     function EsArchivoContactos(NombreArchivo: string): Boolean;
-    procedure GenerarReporteContactos; // Agregar esta declaración
+    procedure GenerarReporteContactos;
   public
   end;
 
@@ -101,11 +101,6 @@ begin
   end;
 end;
 
-procedure TFormMenuRoot.btnComunidadesClick(Sender: TObject);
-begin
-  ShowMessage('Funcionalidad de Gestión de Comunidades en desarrollo...');
-end;
-
 procedure TFormMenuRoot.btnControlLogClick(Sender: TObject);
 begin
   // Mostrar el formulario de Control de Logueo
@@ -114,9 +109,12 @@ begin
   frmControlLogeo.Free;
 end;
 
-procedure TFormMenuRoot.btnReporteComunidadesClick(Sender: TObject);
+procedure TFormMenuRoot.btnComunidadesClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Reporte de Comunidades en desarrollo...');
+  // Mostrar formulario de gestión de comunidades
+  frmComunidades := TfrmComunidades.Create(Application);
+  frmComunidades.ShowModal;
+  frmComunidades.Free;
 end;
 
 procedure TFormMenuRoot.btnReporteContactosClick(Sender: TObject);
@@ -277,7 +275,8 @@ var
   I, J: Integer;
   UsuarioObj: TJSONObject;
   ContactosArray: TJSONArray;
-  UsuarioNombre: string;
+  UsuarioNombre, ContactoUsuario: string;
+  UsuarioEncontrado, ContactoEncontrado: TDatoUsuario;
   FileStream: TFileStream;
 begin
   // Limpiar grafo existente
@@ -300,17 +299,56 @@ begin
           UsuarioObj := UsuariosArray.Objects[I];
           UsuarioNombre := UsuarioObj.Get('Usuario', '');
 
-          // Agregar usuario al grafo (usamos I+1 como ID temporal)
-          GrafoContactosGlobal.AgregarUsuario(I + 1, UsuarioNombre, UsuarioNombre);
+          // Buscar el usuario en la lista global por nombre de usuario
+          UsuarioEncontrado := ListaUsuariosGlobal.ObtenerUsuarioPorNombreUsuario(UsuarioNombre);
 
-          // Agregar contactos
-          ContactosArray := UsuarioObj.Get('Contactos', TJSONArray(nil)) as TJSONArray;
-          if ContactosArray <> nil then
+          if UsuarioEncontrado.Id <> -1 then
           begin
-            for J := 0 to ContactosArray.Count - 1 do
+            // Agregar usuario al grafo con datos reales (usar email como identificador)
+            GrafoContactosGlobal.AgregarUsuario(
+              UsuarioEncontrado.Id,
+              UsuarioEncontrado.Nombre,
+              UsuarioEncontrado.Email  // Usar email como identificador
+            );
+
+            // Agregar contactos
+            ContactosArray := UsuarioObj.Get('Contactos', TJSONArray(nil)) as TJSONArray;
+            if ContactosArray <> nil then
             begin
-              GrafoContactosGlobal.AgregarContacto(UsuarioNombre, ContactosArray.Strings[J]);
+              for J := 0 to ContactosArray.Count - 1 do
+              begin
+                ContactoUsuario := ContactosArray.Strings[J];
+
+                // Buscar el contacto en la lista global por nombre de usuario
+                ContactoEncontrado := ListaUsuariosGlobal.ObtenerUsuarioPorNombreUsuario(ContactoUsuario);
+
+                if ContactoEncontrado.Id <> -1 then
+                begin
+                  // Agregar contacto al grafo si no existe
+                  if GrafoContactosGlobal.ObtenerNodoPorUsuario(ContactoEncontrado.Email) = nil then
+                  begin
+                    GrafoContactosGlobal.AgregarUsuario(
+                      ContactoEncontrado.Id,
+                      ContactoEncontrado.Nombre,
+                      ContactoEncontrado.Email  // Usar email como identificador
+                    );
+                  end;
+
+                  // Agregar la relación usando emails
+                  GrafoContactosGlobal.AgregarContacto(UsuarioEncontrado.Email, ContactoEncontrado.Email);
+                end
+                else
+                begin
+                  // Mostrar advertencia si no se encuentra el contacto
+                  ShowMessage('Advertencia: Contacto "' + ContactoUsuario + '" no encontrado en el sistema.');
+                end;
+              end;
             end;
+          end
+          else
+          begin
+            // Mostrar advertencia si no se encuentra el usuario
+            ShowMessage('Advertencia: Usuario "' + UsuarioNombre + '" no encontrado en el sistema.');
           end;
         end;
       end

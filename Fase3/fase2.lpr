@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
 UBandejaEntrada, UControlLog, UFormControlLog, UGrafoContactos,
-UFormAgregarContacto, UFormContactos;
+UFormAgregarContacto, UFormContactos, UArbolComunidades, UFormComunidades;
 
 {$R *.res}
 
@@ -30,6 +30,7 @@ begin
   Application.CreateForm(TfrmControlLogeo, frmControlLogeo);
   Application.CreateForm(TfrmAgregarContacto, frmAgregarContacto);
   Application.CreateForm(TfrmContactos, frmContactos);
+  Application.CreateForm(TfrmComunidades, frmComunidades);
   Application.Run;
 end.
 

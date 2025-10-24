@@ -29,7 +29,7 @@ begin
   Application.CreateForm(TFormBandejaEntrada, FormBandejaEntrada);
   Application.CreateForm(TfrmControlLogeo, frmControlLogeo);
   Application.CreateForm(TfrmAgregarContacto, frmAgregarContacto);
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmContactos, frmContactos);
   Application.Run;
 end.
 

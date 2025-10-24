@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
-  UGrafoContactos;
+  UGrafoContactos,  UFormComunidades, UArbolComunidades;
 
 type
 
@@ -103,7 +103,10 @@ end;
 
 procedure TFormMenuRoot.btnComunidadesClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Gestión de Comunidades en desarrollo...');
+  // Mostrar formulario de gestión de comunidades
+  frmComunidades := TfrmComunidades.Create(Application);
+  frmComunidades.ShowModal;
+  frmComunidades.Free;
 end;
 
 procedure TFormMenuRoot.btnControlLogClick(Sender: TObject);
