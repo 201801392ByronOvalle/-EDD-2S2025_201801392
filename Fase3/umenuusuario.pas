@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, UBandejaEntrada,
-  UControlLog, UFormAgregarContacto, UGrafoContactos, UListaSimple;
+  UControlLog, UFormAgregarContacto, UFormContactos, UGrafoContactos, UListaSimple;
 
 type
 
@@ -103,8 +103,11 @@ end;
 
 procedure TFormMenuUsuario.btnContactosClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Contactos en desarrollo...');
-  // Aquí se gestionarán los contactos (Árbol BST)
+  // Mostrar formulario de contactos
+  frmContactos := TfrmContactos.Create(Application);
+  frmContactos.UsuarioActual := FEmailUsuario;
+  frmContactos.ShowModal;
+  frmContactos.Free;
 end;
 
 procedure TFormMenuUsuario.btnPublicarComunidadClick(Sender: TObject);

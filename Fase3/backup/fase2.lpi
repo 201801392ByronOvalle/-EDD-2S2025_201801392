@@ -98,6 +98,13 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UGrafoContactos"/>
       </Unit>
+      <Unit>
+        <Filename Value="uformagregarcontacto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAgregarContacto"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFormAgregarContacto"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
