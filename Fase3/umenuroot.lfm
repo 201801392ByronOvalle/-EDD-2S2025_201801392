@@ -1,7 +1,7 @@
 object FormMenuRoot: TFormMenuRoot
-  Left = 981
+  Left = 805
   Height = 477
-  Top = 138
+  Top = 170
   Width = 320
   Caption = 'Menu Root'
   ClientHeight = 477

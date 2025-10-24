@@ -121,8 +121,17 @@
         <Filename Value="uformcomunidades.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmComunidades"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormComunidades"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformpublicarmensaje.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPublicarMensaje"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFormPublicarMensaje"/>
       </Unit>
     </Units>
   </ProjectOptions>

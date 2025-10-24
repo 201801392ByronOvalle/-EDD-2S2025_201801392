@@ -1,0 +1,63 @@
+object frmPublicarMensaje: TfrmPublicarMensaje
+  Left = 0
+  Top = 0
+  Caption = 'frmPublicarMensaje'
+  ClientHeight = 400
+  ClientWidth = 500
+  OnShow = FormShow
+  object Label1: TLabel
+    Left = 150
+    Top = 20
+    Width = 200
+    Height = 20
+    Caption = 'Publicar Mensaje'
+    Font.Style = [fsBold]
+  end
+  object Label2: TLabel
+    Left = 50
+    Top = 60
+    Width = 120
+    Height = 15
+    Caption = 'Selecciona comunidad:'
+  end
+  object cbComunidades: TComboBox
+    Left = 180
+    Top = 55
+    Width = 200
+    Height = 25
+    Style = csDropDownList
+    TabOrder = 0
+  end
+  object Label3: TLabel
+    Left = 50
+    Top = 100
+    Width = 50
+    Height = 15
+    Caption = 'Mensaje:'
+  end
+  object memMensaje: TMemo
+    Left = 50
+    Top = 120
+    Width = 400
+    Height = 150
+    TabOrder = 1
+  end
+  object btnPublicar: TButton
+    Left = 150
+    Top = 290
+    Width = 100
+    Height = 40
+    Caption = 'Publicar'
+    TabOrder = 2
+    OnClick = btnPublicarClick
+  end
+  object btnVolver: TButton
+    Left = 260
+    Top = 290
+    Width = 100
+    Height = 40
+    Caption = 'Volver'
+    TabOrder = 3
+    OnClick = btnVolverClick
+  end
+end

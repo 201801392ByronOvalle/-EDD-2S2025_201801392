@@ -39,7 +39,7 @@ type
     function EsArchivoUsuarios(NombreArchivo: string): Boolean;
     function EsArchivoCorreos(NombreArchivo: string): Boolean;
     function EsArchivoContactos(NombreArchivo: string): Boolean;
-    procedure GenerarReporteContactos;
+    procedure GenerarReporteContactos; // Agregar esta declaración
   public
   end;
 
@@ -101,6 +101,14 @@ begin
   end;
 end;
 
+procedure TFormMenuRoot.btnComunidadesClick(Sender: TObject);
+begin
+  // Mostrar formulario de gestión de comunidades
+  frmComunidades := TfrmComunidades.Create(Application);
+  frmComunidades.ShowModal;
+  frmComunidades.Free;
+end;
+
 procedure TFormMenuRoot.btnControlLogClick(Sender: TObject);
 begin
   // Mostrar el formulario de Control de Logueo
@@ -109,12 +117,9 @@ begin
   frmControlLogeo.Free;
 end;
 
-procedure TFormMenuRoot.btnComunidadesClick(Sender: TObject);
+procedure TFormMenuRoot.btnReporteComunidadesClick(Sender: TObject);
 begin
-  // Mostrar formulario de gestión de comunidades
-  frmComunidades := TfrmComunidades.Create(Application);
-  frmComunidades.ShowModal;
-  frmComunidades.Free;
+  ShowMessage('Funcionalidad de Reporte de Comunidades en desarrollo...');
 end;
 
 procedure TFormMenuRoot.btnReporteContactosClick(Sender: TObject);

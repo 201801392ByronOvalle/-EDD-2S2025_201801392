@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, UBandejaEntrada,
-  UControlLog, UFormAgregarContacto, UGrafoContactos, UListaSimple;
+  UControlLog, UFormAgregarContacto, UFormContactos, UGrafoContactos, UListaSimple,
+  UFormPublicarMensaje;
 
 type
 
@@ -14,7 +15,7 @@ type
 
   TFormMenuUsuario = class(TForm)
     btnBandejaEntrada: TButton;
-    btnComunidad: TButton;
+    btnPublicarComunidad: TButton;
     btnEnviarCorreo: TButton;
     btnBorradores: TButton;
     btnFavoritos: TButton;
@@ -103,14 +104,20 @@ end;
 
 procedure TFormMenuUsuario.btnContactosClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Contactos en desarrollo...');
-  // Aquí se gestionarán los contactos (Árbol BST)
+  // Mostrar formulario de contactos
+  frmContactos := TfrmContactos.Create(Application);
+  frmContactos.UsuarioActual := FEmailUsuario;
+  frmContactos.ShowModal;
+  frmContactos.Free;
 end;
 
 procedure TFormMenuUsuario.btnPublicarComunidadClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Publicar en Comunidad en desarrollo...');
-  // Aquí se publicarán mensajes en comunidades
+  // Mostrar formulario para publicar mensaje en comunidad
+  frmPublicarMensaje := TfrmPublicarMensaje.Create(Application);
+  frmPublicarMensaje.UsuarioActual := FEmailUsuario;
+  frmPublicarMensaje.ShowModal;
+  frmPublicarMensaje.Free;
 end;
 
 procedure TFormMenuUsuario.btnReportesClick(Sender: TObject);

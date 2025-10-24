@@ -2,10 +2,10 @@ object FormMenuUsuario: TFormMenuUsuario
   Left = 792
   Height = 576
   Top = 141
-  Width = 372
+  Width = 371
   Caption = 'Menu Usuario'
   ClientHeight = 576
-  ClientWidth = 372
+  ClientWidth = 371
   Color = clSkyBlue
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
@@ -46,13 +46,14 @@ object FormMenuUsuario: TFormMenuUsuario
     TabOrder = 3
     OnClick = btnContactosClick
   end
-  object btnComunidad: TButton
-    Left = 104
+  object btnPublicarComunidad: TButton
+    Left = 80
     Height = 40
     Top = 416
-    Width = 152
-    Caption = 'Publicar Comunidad'
+    Width = 224
+    Caption = 'Publicar Mensaje en Comunidad'
     TabOrder = 4
+    OnClick = btnPublicarComunidadClick
   end
   object btnReportes: TButton
     Left = 131
