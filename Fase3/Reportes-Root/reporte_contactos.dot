@@ -1,0 +1,15 @@
+graph G {
+  rankdir=LR;
+  node [shape=ellipse, style=filled, color=lightblue];
+  edge [color=gray];
+
+  "lgarcia" [label="lgarcia"];
+  "smejia" [label="smejia"];
+  "bfox" [label="bfox"];
+  "mbaker" [label="mbaker"];
+  "mitzep" [label="mitzep"];
+
+  "lgarcia" -- "smejia";
+  "lgarcia" -- "mbaker";
+  "bfox" -- "smejia";
+}

@@ -5,7 +5,7 @@ unit UMenuRoot;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
   UGrafoContactos;
 
@@ -20,11 +20,13 @@ type
     btnVerMensajesComunidad: TButton;
     btnControlLog: TButton;
     btnSalir: TButton;
+    btnReporteContactos: TButton;
     Label1: TLabel;
     OpenDialog1: TOpenDialog;
     procedure btnCargaMasivaClick(Sender: TObject);
     procedure btnComunidadesClick(Sender: TObject);
     procedure btnReporteComunidadesClick(Sender: TObject);
+    procedure btnReporteContactosClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
     procedure btnVerMensajesComunidadClick(Sender: TObject);
     procedure btnControlLogClick(Sender: TObject);
@@ -33,10 +35,11 @@ type
   private
     procedure CargarUsuariosDesdeJSON(ArchivoJSON: string);
     procedure CargarCorreosDesdeJSON(ArchivoJSON: string);
-    procedure CargarContactosDesdeJSON(ArchivoJSON: string); // Agregar esta declaración
+    procedure CargarContactosDesdeJSON(ArchivoJSON: string);
     function EsArchivoUsuarios(NombreArchivo: string): Boolean;
     function EsArchivoCorreos(NombreArchivo: string): Boolean;
-    function EsArchivoContactos(NombreArchivo: string): Boolean; // Agregar esta declaración
+    function EsArchivoContactos(NombreArchivo: string): Boolean;
+    procedure GenerarReporteContactos; // Agregar esta declaración
   public
   end;
 
@@ -84,7 +87,7 @@ begin
         CargarContactosDesdeJSON(OpenDialog1.FileName);
         ShowMessage('Carga de contactos completada exitosamente.' + sLineBreak +
                    'Contactos cargados en el grafo.' + sLineBreak +
-                   GrafoContactosGlobal.ToString);
+                   GrafoContactosGlobal.ToStringGrafo);
       end
       else
       begin
@@ -114,6 +117,11 @@ end;
 procedure TFormMenuRoot.btnReporteComunidadesClick(Sender: TObject);
 begin
   ShowMessage('Funcionalidad de Reporte de Comunidades en desarrollo...');
+end;
+
+procedure TFormMenuRoot.btnReporteContactosClick(Sender: TObject);
+begin
+  GenerarReporteContactos;
 end;
 
 procedure TFormMenuRoot.btnVerMensajesComunidadClick(Sender: TObject);
@@ -316,6 +324,71 @@ begin
     end;
   finally
     FileStream.Free;
+  end;
+end;
+
+procedure TFormMenuRoot.GenerarReporteContactos;
+var
+  DotContent: string;
+  DotFileName, PngFileName, ReportDir: string;
+  AProcess: TProcess;
+begin
+  if not Assigned(GrafoContactosGlobal) or (GrafoContactosGlobal.Count = 0) then
+  begin
+    ShowMessage('No hay contactos cargados en el sistema para generar el reporte.');
+    Exit;
+  end;
+
+  // Crear directorio de reportes
+  ReportDir := 'Reportes-Root';
+  if not DirectoryExists(ReportDir) then
+    CreateDir(ReportDir);
+
+  try
+    // Generar contenido DOT
+    DotContent := GrafoContactosGlobal.GenerarReporteGraphviz;
+
+    // Guardar archivo .dot
+    DotFileName := ReportDir + '/reporte_contactos.dot';
+    with TStringList.Create do
+    try
+      Text := DotContent;
+      SaveToFile(DotFileName);
+    finally
+      Free;
+    end;
+
+    // Generar imagen PNG con Graphviz
+    PngFileName := ReportDir + '/reporte_contactos.png';
+    AProcess := TProcess.Create(nil);
+    try
+      AProcess.Executable := 'dot';
+      AProcess.Parameters.Add('-Tpng');
+      AProcess.Parameters.Add(DotFileName);
+      AProcess.Parameters.Add('-o');
+      AProcess.Parameters.Add(PngFileName);
+      AProcess.Options := AProcess.Options + [poWaitOnExit];
+      AProcess.Execute;
+
+      if AProcess.ExitStatus = 0 then
+      begin
+        ShowMessage('Reporte de contactos generado exitosamente en:' + sLineBreak +
+                   ReportDir + sLineBreak +
+                   'Archivos creados:' + sLineBreak +
+                   '- reporte_contactos.dot' + sLineBreak +
+                   '- reporte_contactos.png');
+      end
+      else
+      begin
+        ShowMessage('Error al generar la imagen PNG. Verifique que Graphviz esté instalado.');
+      end;
+    finally
+      AProcess.Free;
+    end;
+
+  except
+    on E: Exception do
+      ShowMessage('Error al generar el reporte: ' + E.Message);
   end;
 end;
 

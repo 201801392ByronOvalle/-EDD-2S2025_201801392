@@ -30,7 +30,7 @@ type
     procedure AgregarContacto(Usuario1, Usuario2: string);
     function ObtenerNodoPorUsuario(Usuario: string): PNodoGrafo;
     procedure LimpiarGrafo;
-    function ToString: string; // Para debugging
+    function ToString: string;
     property Count: Integer read FCount;
   end;
 

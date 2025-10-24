@@ -1,10 +1,10 @@
 object FormMenuRoot: TFormMenuRoot
   Left = 1166
-  Height = 422
+  Height = 477
   Top = 168
   Width = 320
   Caption = 'Menu Root'
-  ClientHeight = 422
+  ClientHeight = 477
   ClientWidth = 320
   Color = clSkyBlue
   LCLVersion = '4.2.0.0'
@@ -49,7 +49,7 @@ object FormMenuRoot: TFormMenuRoot
   object btnSalir: TButton
     Left = 128
     Height = 25
-    Top = 376
+    Top = 440
     Width = 75
     Caption = 'Salir'
     TabOrder = 4
@@ -65,11 +65,20 @@ object FormMenuRoot: TFormMenuRoot
   object btnControlLog: TButton
     Left = 72
     Height = 32
-    Top = 320
+    Top = 384
     Width = 176
     Caption = 'Control de Logeo '
     TabOrder = 5
     OnClick = btnControlLogClick
+  end
+  object btnReporteContactos: TButton
+    Left = 88
+    Height = 33
+    Top = 320
+    Width = 152
+    Caption = 'Reporte Contactos'
+    TabOrder = 6
+    OnClick = btnReporteContactosClick
   end
   object OpenDialog1: TOpenDialog
     Left = 76
