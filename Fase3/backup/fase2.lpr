@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
-UBandejaEntrada, UControlLog, UFormControlLog;
+UBandejaEntrada, UControlLog, UFormControlLog, UGrafoContactos;
 
 {$R *.res}
 

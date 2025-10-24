@@ -30,7 +30,8 @@ type
     procedure AgregarContacto(Usuario1, Usuario2: string);
     function ObtenerNodoPorUsuario(Usuario: string): PNodoGrafo;
     procedure LimpiarGrafo;
-    function ToString: string;
+    function ToStringGrafo: string; // Para debugging
+    function GenerarReporteGraphviz: string;
     property Count: Integer read FCount;
   end;
 
@@ -82,6 +83,10 @@ begin
 
   if (Nodo1 = nil) or (Nodo2 = nil) then Exit;
 
+  // Verificar si ya existe la conexión
+  for I := 0 to High(Nodo1^.Adyacentes) do
+    if Nodo1^.Adyacentes[I] = Nodo2 then Exit;
+
   // Agregar Usuario2 a la lista de contactos de Usuario1
   SetLength(Nodo1^.Adyacentes, Length(Nodo1^.Adyacentes) + 1);
   Nodo1^.Adyacentes[High(Nodo1^.Adyacentes)] := Nodo2;
@@ -124,7 +129,7 @@ begin
   FCount := 0;
 end;
 
-function TGrafoContactos.ToString: string;
+function TGrafoContactos.ToStringGrafo: string;
 var
   I, J: Integer;
 begin
@@ -148,6 +153,52 @@ begin
     end;
     Result := Result + sLineBreak;
   end;
+end;
+
+function TGrafoContactos.GenerarReporteGraphviz: string;
+var
+  I, J: Integer;
+  Conexiones: TStringList;
+begin
+  Result := 'graph G {' + sLineBreak;
+  Result := Result + '  rankdir=LR;' + sLineBreak;
+  Result := Result + '  node [shape=ellipse, style=filled, color=lightblue];' + sLineBreak;
+  Result := Result + '  edge [color=gray];' + sLineBreak + sLineBreak;
+
+  // Agregar nodos con ID y Nombre
+  for I := 0 to High(FNodos) do
+  begin
+    Result := Result + '  "' + FNodos[I]^.Usuario + '" [label="ID: ' + IntToStr(FNodos[I]^.ID) +
+               '\n' + FNodos[I]^.Nombre + '\n' + FNodos[I]^.Usuario + '"];' + sLineBreak;
+  end;
+
+  Result := Result + sLineBreak;
+
+  // Agregar conexiones (evitando duplicados)
+  Conexiones := TStringList.Create;
+  try
+    for I := 0 to High(FNodos) do
+    begin
+      for J := 0 to High(FNodos[I]^.Adyacentes) do
+      begin
+        // Evitar conexiones duplicadas en grafos no dirigidos
+        if (FNodos[I]^.Usuario < FNodos[I]^.Adyacentes[J]^.Usuario) then
+        begin
+          Conexiones.Add('  "' + FNodos[I]^.Usuario + '" -- "' +
+                         FNodos[I]^.Adyacentes[J]^.Usuario + '";');
+        end;
+      end;
+    end;
+
+    for I := 0 to Conexiones.Count - 1 do
+    begin
+      Result := Result + Conexiones[I] + sLineBreak;
+    end;
+  finally
+    Conexiones.Free;
+  end;
+
+  Result := Result + '}' + sLineBreak;
 end;
 
 initialization

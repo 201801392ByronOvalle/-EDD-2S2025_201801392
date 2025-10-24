@@ -1,10 +1,10 @@
 object FormMenuUsuario: TFormMenuUsuario
   Left = 792
-  Height = 527
+  Height = 576
   Top = 141
   Width = 372
   Caption = 'Menu Usuario'
-  ClientHeight = 527
+  ClientHeight = 576
   ClientWidth = 372
   Color = clSkyBlue
   LCLVersion = '4.2.0.0'
@@ -40,16 +40,16 @@ object FormMenuUsuario: TFormMenuUsuario
   object btnContactos: TButton
     Left = 131
     Height = 40
-    Top = 304
+    Top = 360
     Width = 104
     Caption = 'Contactos'
     TabOrder = 3
     OnClick = btnContactosClick
   end
   object btnComunidad: TButton
-    Left = 112
+    Left = 104
     Height = 40
-    Top = 360
+    Top = 416
     Width = 152
     Caption = 'Publicar Comunidad'
     TabOrder = 4
@@ -57,7 +57,7 @@ object FormMenuUsuario: TFormMenuUsuario
   object btnReportes: TButton
     Left = 131
     Height = 43
-    Top = 416
+    Top = 472
     Width = 104
     Caption = 'Reportes'
     TabOrder = 5
@@ -75,7 +75,7 @@ object FormMenuUsuario: TFormMenuUsuario
   object btnSalir: TButton
     Left = 128
     Height = 40
-    Top = 470
+    Top = 526
     Width = 107
     Caption = 'Salir'
     TabOrder = 7
@@ -94,5 +94,14 @@ object FormMenuUsuario: TFormMenuUsuario
     Top = 56
     Width = 51
     Caption = 'Usuario'
+  end
+  object btnAgregarContacto: TButton
+    Left = 112
+    Height = 40
+    Top = 304
+    Width = 136
+    Caption = 'Agregar Contacto'
+    TabOrder = 8
+    OnClick = btnAgregarContactoClick
   end
 end

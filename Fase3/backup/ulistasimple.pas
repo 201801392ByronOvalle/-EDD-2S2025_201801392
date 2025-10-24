@@ -30,6 +30,7 @@ type
   private
     FCabeza: PNodoLista;
     FCount: Integer;
+    function EstaInicializada: Boolean;
   public
     constructor Create;
     destructor Destroy; override;
@@ -40,6 +41,10 @@ type
     function ObtenerPrimero: PNodoLista;
     property Count: Integer read FCount;
   end;
+
+// Declarar la variable global aquí
+var
+  ListaUsuariosGlobal: TListaSimple;
 
 implementation
 
@@ -55,10 +60,17 @@ begin
   inherited Destroy;
 end;
 
+function TListaSimple.EstaInicializada: Boolean;
+begin
+  Result := True; // Siempre está inicializada después del Create
+end;
+
 procedure TListaSimple.AgregarUsuario(Id: Integer; Nombre, Usuario, Password, Email, Telefono: string);
 var
   NuevoNodo, Actual: PNodoLista;
 begin
+  if not EstaInicializada then Exit;
+
   New(NuevoNodo);
   NuevoNodo^.Dato.Id := Id;
   NuevoNodo^.Dato.Nombre := Nombre;
@@ -84,6 +96,11 @@ function TListaSimple.ObtenerUsuarioPorEmail(Email: string): TDatoUsuario;
 var
   Actual: PNodoLista;
 begin
+  // Inicializar resultado por si no encuentra
+  Result.Id := -1;
+
+  if not EstaInicializada then Exit;
+
   Actual := FCabeza;
   while Actual <> nil do
   begin
@@ -94,14 +111,15 @@ begin
     end;
     Actual := Actual^.Siguiente;
   end;
-  // Si no encuentra, retornar un usuario vacío
-  Result.Id := -1;
 end;
 
 function TListaSimple.ExisteUsuario(Email: string): Boolean;
 var
   Actual: PNodoLista;
 begin
+  Result := False;
+  if not EstaInicializada then Exit;
+
   Actual := FCabeza;
   while Actual <> nil do
   begin
@@ -112,13 +130,32 @@ begin
     end;
     Actual := Actual^.Siguiente;
   end;
-  Result := False;
+end;
+
+function TListaSimple.ObtenerUsuarioPorNombreUsuario(NombreUsuario: string): TDatoUsuario;
+var
+  Actual: PNodoLista;
+begin
+  Actual := FCabeza;
+  while Actual <> nil do
+  begin
+    if Actual^.Dato.Usuario = NombreUsuario then
+    begin
+      Result := Actual^.Dato;
+      Exit;
+    end;
+    Actual := Actual^.Siguiente;
+  end;
+  // Si no encuentra, retornar un usuario vacío
+  Result.Id := -1;
 end;
 
 procedure TListaSimple.LimpiarLista;
 var
   Actual, Temp: PNodoLista;
 begin
+  if not EstaInicializada then Exit;
+
   Actual := FCabeza;
   while Actual <> nil do
   begin
@@ -132,7 +169,18 @@ end;
 
 function TListaSimple.ObtenerPrimero: PNodoLista;
 begin
-  Result := FCabeza;
+  if EstaInicializada then
+    Result := FCabeza
+  else
+    Result := nil;
 end;
+
+// Inicializar la variable global
+initialization
+  ListaUsuariosGlobal := TListaSimple.Create;
+
+finalization
+  if Assigned(ListaUsuariosGlobal) then
+    ListaUsuariosGlobal.Free;
 
 end.

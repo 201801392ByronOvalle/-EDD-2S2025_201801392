@@ -165,10 +165,12 @@ begin
   Result := Result + '  node [shape=ellipse, style=filled, color=lightblue];' + sLineBreak;
   Result := Result + '  edge [color=gray];' + sLineBreak + sLineBreak;
 
-  // Agregar nodos
+  // Agregar nodos con información más clara
   for I := 0 to High(FNodos) do
   begin
-    Result := Result + '  "' + FNodos[I]^.Usuario + '" [label="' + FNodos[I]^.Usuario + '"];' + sLineBreak;
+    Result := Result + '  "' + FNodos[I]^.Usuario + '" [label="ID: ' + IntToStr(FNodos[I]^.ID) +
+               '\nNombre: ' + FNodos[I]^.Nombre +
+               '\nUsuario: ' + FNodos[I]^.Usuario + '"];' + sLineBreak;
   end;
 
   Result := Result + sLineBreak;

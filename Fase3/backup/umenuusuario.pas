@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, UBandejaEntrada,
-  UControlLog;
+  UControlLog, UFormAgregarContacto, UGrafoContactos, UListaSimple;
 
 type
 

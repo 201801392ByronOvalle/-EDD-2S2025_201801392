@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, UBandejaEntrada,
-  UControlLog;
+  UControlLog, UFormAgregarContacto, UGrafoContactos, UListaSimple;
 
 type
 
@@ -14,6 +14,7 @@ type
 
   TFormMenuUsuario = class(TForm)
     btnBandejaEntrada: TButton;
+    btnComunidad: TButton;
     btnEnviarCorreo: TButton;
     btnBorradores: TButton;
     btnFavoritos: TButton;
@@ -21,8 +22,10 @@ type
     btnPublicarComunidad: TButton;
     btnReportes: TButton;
     btnSalir: TButton;
+    btnAgregarContacto: TButton;
     Label1: TLabel;
     lblUsuarioActual: TLabel;
+    procedure btnAgregarContactoClick(Sender: TObject);
     procedure btnBandejaEntradaClick(Sender: TObject);
     procedure btnBorradoresClick(Sender: TObject);
     procedure btnContactosClick(Sender: TObject);
@@ -69,6 +72,15 @@ begin
   FormBandejaEntrada.EmailUsuario := FEmailUsuario;
   FormBandejaEntrada.ShowModal;
   FormBandejaEntrada.Free;
+end;
+
+procedure TFormMenuUsuario.btnAgregarContactoClick(Sender: TObject);
+begin
+  // Mostrar formulario para agregar contacto
+  frmAgregarContacto := TfrmAgregarContacto.Create(Application);
+  frmAgregarContacto.UsuarioActual := FEmailUsuario;
+  frmAgregarContacto.ShowModal;
+  frmAgregarContacto.Free;
 end;
 
 procedure TFormMenuUsuario.btnEnviarCorreoClick(Sender: TObject);

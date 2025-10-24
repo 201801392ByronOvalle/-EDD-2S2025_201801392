@@ -37,6 +37,7 @@ type
     procedure AgregarUsuario(Id: Integer; Nombre, Usuario, Password, Email, Telefono: string);
     function ObtenerUsuarioPorEmail(Email: string): TDatoUsuario;
     function ExisteUsuario(Email: string): Boolean;
+    function ObtenerUsuarioPorNombreUsuario(NombreUsuario: string): TDatoUsuario;
     procedure LimpiarLista;
     function ObtenerPrimero: PNodoLista;
     property Count: Integer read FCount;
@@ -130,6 +131,24 @@ begin
     end;
     Actual := Actual^.Siguiente;
   end;
+end;
+
+function TListaSimple.ObtenerUsuarioPorNombreUsuario(NombreUsuario: string): TDatoUsuario;
+var
+  Actual: PNodoLista;
+begin
+  Actual := FCabeza;
+  while Actual <> nil do
+  begin
+    if Actual^.Dato.Usuario = NombreUsuario then
+    begin
+      Result := Actual^.Dato;
+      Exit;
+    end;
+    Actual := Actual^.Siguiente;
+  end;
+  // Si no encuentra, retornar un usuario vacío
+  Result.Id := -1;
 end;
 
 procedure TListaSimple.LimpiarLista;

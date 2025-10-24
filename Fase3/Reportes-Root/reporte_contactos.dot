@@ -3,13 +3,25 @@ graph G {
   node [shape=ellipse, style=filled, color=lightblue];
   edge [color=gray];
 
-  "lgarcia" [label="lgarcia"];
-  "smejia" [label="smejia"];
-  "bfox" [label="bfox"];
-  "mbaker" [label="mbaker"];
-  "mitzep" [label="mitzep"];
+  "lgarcia@edd.com" [label="ID: 1\nNombre: Luis Garcia\nUsuario: lgarcia@edd.com"];
+  "mitzep@edd.com" [label="ID: 2\nNombre: Marcos Itzep\nUsuario: mitzep@edd.com"];
+  "mshuttleworth@edd.com" [label="ID: 4\nNombre: Mark Shuttleworth\nUsuario: mshuttleworth@edd.com"];
+  "smejia@edd.com" [label="ID: 5\nNombre: Steven Mejia\nUsuario: smejia@edd.com"];
+  "bfox@edd.com" [label="ID: 6\nNombre: Brian Fox\nUsuario: bfox@edd.com"];
+  "jcorbet@edd.com" [label="ID: 7\nNombre: Jon Corbet\nUsuario: jcorbet@edd.com"];
+  "mbaker@edd.com" [label="ID: 9\nNombre: Mitchell Baker\nUsuario: mbaker@edd.com"];
+  "imurdock@edd.com" [label="ID: 10\nNombre: Ian Murdock\nUsuario: imurdock@edd.com"];
+  "gkroah-hartman@edd.com" [label="ID: 3\nNombre: Greg Kroah-Hartman\nUsuario: gkroah-hartman@edd.com"];
 
-  "lgarcia" -- "smejia";
-  "lgarcia" -- "mbaker";
-  "bfox" -- "smejia";
+  "lgarcia@edd.com" -- "mitzep@edd.com";
+  "lgarcia@edd.com" -- "mshuttleworth@edd.com";
+  "lgarcia@edd.com" -- "smejia@edd.com";
+  "lgarcia@edd.com" -- "mbaker@edd.com";
+  "mitzep@edd.com" -- "smejia@edd.com";
+  "bfox@edd.com" -- "smejia@edd.com";
+  "bfox@edd.com" -- "jcorbet@edd.com";
+  "jcorbet@edd.com" -- "mitzep@edd.com";
+  "mbaker@edd.com" -- "mitzep@edd.com";
+  "imurdock@edd.com" -- "mbaker@edd.com";
+  "gkroah-hartman@edd.com" -- "mitzep@edd.com";
 }

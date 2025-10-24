@@ -5,7 +5,7 @@ unit UMenuRoot;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
   UGrafoContactos;
 
@@ -35,10 +35,11 @@ type
   private
     procedure CargarUsuariosDesdeJSON(ArchivoJSON: string);
     procedure CargarCorreosDesdeJSON(ArchivoJSON: string);
-    procedure CargarContactosDesdeJSON(ArchivoJSON: string); // Agregar esta declaración
+    procedure CargarContactosDesdeJSON(ArchivoJSON: string);
     function EsArchivoUsuarios(NombreArchivo: string): Boolean;
     function EsArchivoCorreos(NombreArchivo: string): Boolean;
-    function EsArchivoContactos(NombreArchivo: string): Boolean; // Agregar esta declaración
+    function EsArchivoContactos(NombreArchivo: string): Boolean;
+    procedure GenerarReporteContactos; // Agregar esta declaración
   public
   end;
 
@@ -86,7 +87,7 @@ begin
         CargarContactosDesdeJSON(OpenDialog1.FileName);
         ShowMessage('Carga de contactos completada exitosamente.' + sLineBreak +
                    'Contactos cargados en el grafo.' + sLineBreak +
-                   GrafoContactosGlobal.ToString);
+                   GrafoContactosGlobal.ToStringGrafo);
       end
       else
       begin
