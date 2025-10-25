@@ -1,7 +1,7 @@
 object frmAgregarContacto: TfrmAgregarContacto
-  Left = 812
+  Left = 1458
   Height = 178
-  Top = 150
+  Top = 396
   Width = 353
   Caption = 'Agregar Contacto'
   ClientHeight = 178

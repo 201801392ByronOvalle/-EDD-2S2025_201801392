@@ -102,6 +102,7 @@
         <Filename Value="uformagregarcontacto.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAgregarContacto"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormAgregarContacto"/>
       </Unit>
@@ -109,6 +110,7 @@
         <Filename Value="uformcontactos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmContactos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormContactos"/>
       </Unit>
@@ -140,6 +142,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFormVerMensajesComunidad"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformdetallecorreo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDetalleCorreo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFormDetalleCorreo"/>
       </Unit>
     </Units>
   </ProjectOptions>

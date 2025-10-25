@@ -1,7 +1,7 @@
 object frmContactos: TfrmContactos
-  Left = 778
+  Left = 843
   Height = 174
-  Top = 246
+  Top = 260
   Width = 387
   Caption = 'Contactos'
   ClientHeight = 174
@@ -15,6 +15,7 @@ object frmContactos: TfrmContactos
     Top = 88
     Width = 40
     Caption = '>'
+    Color = clCream
     Font.Height = -16
     Font.Name = 'Sans'
     Font.Style = [fsBold, fsItalic]

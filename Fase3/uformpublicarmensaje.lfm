@@ -1,7 +1,7 @@
 object frmPublicarMensaje: TfrmPublicarMensaje
-  Left = 804
+  Left = 1333
   Height = 351
-  Top = 234
+  Top = 287
   Width = 448
   Caption = 'Publicar Mensaje'
   ClientHeight = 351

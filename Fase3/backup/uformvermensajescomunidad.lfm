@@ -1,7 +1,7 @@
 object frmVerMensajesComunidad: TfrmVerMensajesComunidad
-  Left = 756
+  Left = 932
   Height = 463
-  Top = 148
+  Top = 212
   Width = 600
   Caption = 'Ver Mensajes de Comunidad'
   ClientHeight = 463

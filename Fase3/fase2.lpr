@@ -13,7 +13,7 @@ uses
   Forms, ProyectoF2, UMenuRoot, UListaSimple, UColaCorreos, UMenuUsuario,
   UBandejaEntrada, UControlLog, UFormControlLog, UGrafoContactos,
   UFormAgregarContacto, UFormContactos, UArbolComunidades, UFormComunidades,
-  UFormPublicarMensaje, UFormVerMensajesComunidad;
+  UFormPublicarMensaje, UFormVerMensajesComunidad, UFormDetalleCorreo;
 
 {$R *.res}
 
@@ -33,6 +33,7 @@ begin
   Application.CreateForm(TfrmContactos, frmContactos);
   Application.CreateForm(TfrmComunidades, frmComunidades);
   Application.CreateForm(TfrmPublicarMensaje, frmPublicarMensaje);
+  Application.CreateForm(TfrmDetalleCorreo, frmDetalleCorreo);
   Application.Run;
 end.
 

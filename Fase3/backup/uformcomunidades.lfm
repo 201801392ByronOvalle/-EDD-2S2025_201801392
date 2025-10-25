@@ -10,7 +10,7 @@ object frmComunidades: TfrmComunidades
   LCLVersion = '4.2.0.0'
   OnShow = FormShow
   object Label1: TLabel
-    Left = 100
+    Left = 64
     Height = 19
     Top = 20
     Width = 170

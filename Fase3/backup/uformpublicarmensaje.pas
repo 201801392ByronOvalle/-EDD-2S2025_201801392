@@ -57,7 +57,6 @@ end;
 procedure TfrmPublicarMensaje.btnPublicarClick(Sender: TObject);
 var
   NombreComunidad, Mensaje: string;
-  Comunidad: PNodoComunidad;
 begin
   if cbComunidades.ItemIndex = -1 then
   begin
@@ -74,20 +73,10 @@ begin
     Exit;
   end;
 
-  // Buscar la comunidad
-  Comunidad := ArbolComunidadesGlobal.BuscarComunidad(NombreComunidad);
-  if Comunidad = nil then
-  begin
-    ShowMessage('La comunidad "' + NombreComunidad + '" no existe.');
-    Exit;
-  end;
+  // Agregar mensaje a la comunidad
+  ArbolComunidadesGlobal.AgregarMensajeAComunidad(NombreComunidad, FUsuarioActual, Mensaje);
 
-  // Incrementar contador de mensajes (por ahora solo contamos)
-  Inc(Comunidad^.MensajesPublicados);
-
-  ShowMessage('Mensaje publicado exitosamente en la comunidad "' + NombreComunidad + '".' +
-              sLineBreak + 'Autor: ' + FUsuarioActual +
-              sLineBreak + 'Mensaje: ' + Mensaje);
+  ShowMessage('Mensaje publicado exitosamente en la comunidad "' + NombreComunidad + '".');
 
   memMensaje.Clear;
 end;

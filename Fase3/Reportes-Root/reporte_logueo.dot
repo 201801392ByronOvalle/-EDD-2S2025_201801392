@@ -1,0 +1,13 @@
+digraph Logueo {
+  rankdir=TB;
+  node [shape=record, style=filled, color=lightgreen];
+  edge [color=gray];
+
+  "Registro0" [label="{lgarcia@edd.com|Entrada: 2025-10-24 21:18:10.888|Salida: 2025-10-24 21:18:36.628}"];
+  "Registro1" [label="{smejia@edd.com|Entrada: 2025-10-24 21:18:52.117|Salida: 2025-10-24 21:18:55.114}"];
+  "Registro2" [label="{bfox@edd.com|Entrada: 2025-10-24 21:19:14.242|Salida: 2025-10-24 21:19:16.426}"];
+
+  // Conexiones temporales
+  "Registro0" -> "Registro1";
+  "Registro1" -> "Registro2";
+}

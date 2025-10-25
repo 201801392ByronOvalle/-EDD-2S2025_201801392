@@ -1,29 +1,51 @@
 object FormBandejaEntrada: TFormBandejaEntrada
-  Left = 728
-  Height = 284
-  Top = 425
-  Width = 503
-  Caption = 'Bandeja Entrada'
-  ClientHeight = 284
-  ClientWidth = 503
-  Color = clSkyBlue
-  LCLVersion = '4.2.0.0'
+  Left = 0
+  Top = 0
+  Caption = 'FormBandejaEntrada'
+  ClientHeight = 400
+  ClientWidth = 600
   OnShow = FormShow
-  object btnVolver: TButton
-    Left = 376
-    Height = 33
-    Top = 16
-    Width = 104
-    Caption = 'Volver'
-    TabOrder = 0
-    OnClick = btnVolverClick
+  object Label1: TLabel
+    Left = 200
+    Top = 20
+    Width = 200
+    Height = 20
+    Caption = 'Bandeja de Entrada'
+    Font.Style = [fsBold]
+  end
+  object lblTotalCorreos: TLabel
+    Left = 50
+    Top = 50
+    Width = 100
+    Height = 15
+    Caption = 'Total: 0'
+  end
+  object lblNoLeidos: TLabel
+    Left = 150
+    Top = 50
+    Width = 100
+    Height = 15
+    Caption = 'No leídos: 0'
   end
   object ListViewCorreos: TListView
-    Left = 32
-    Height = 192
-    Top = 72
-    Width = 448
+    Left = 50
+    Top = 80
+    Width = 500
+    Height = 250
     Columns = <>
+    GridLines = True
+    RowSelect = True
+    TabOrder = 0
+    ViewStyle = vsReport
+    OnDblClick = ListViewCorreosDblClick
+  end
+  object btnVolver: TButton
+    Left = 250
+    Top = 350
+    Width = 100
+    Height = 40
+    Caption = 'Volver'
     TabOrder = 1
+    OnClick = btnVolverClick
   end
 end

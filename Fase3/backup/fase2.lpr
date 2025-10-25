@@ -33,7 +33,6 @@ begin
   Application.CreateForm(TfrmContactos, frmContactos);
   Application.CreateForm(TfrmComunidades, frmComunidades);
   Application.CreateForm(TfrmPublicarMensaje, frmPublicarMensaje);
-  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 

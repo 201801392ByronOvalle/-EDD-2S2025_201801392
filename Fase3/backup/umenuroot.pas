@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Process,
   UListaSimple, UColaCorreos, UControlLog, UFormControlLog, fpjson, jsonparser,
-  UGrafoContactos,  UFormComunidades, UArbolComunidades;
+  UGrafoContactos,  UFormComunidades, UArbolComunidades, UFormVerMensajesComunidad;
 
 type
 
@@ -16,17 +16,15 @@ type
   TFormMenuRoot = class(TForm)
     btnCargaMasiva: TButton;
     btnComunidades: TButton;
-    btnReporteComunidades: TButton;
     btnVerMensajesComunidad: TButton;
     btnControlLog: TButton;
     btnSalir: TButton;
-    btnReporteContactos: TButton;
+    btnReportes: TButton;
     Label1: TLabel;
     OpenDialog1: TOpenDialog;
     procedure btnCargaMasivaClick(Sender: TObject);
     procedure btnComunidadesClick(Sender: TObject);
-    procedure btnReporteComunidadesClick(Sender: TObject);
-    procedure btnReporteContactosClick(Sender: TObject);
+    procedure btnReportesClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
     procedure btnVerMensajesComunidadClick(Sender: TObject);
     procedure btnControlLogClick(Sender: TObject);
@@ -39,7 +37,7 @@ type
     function EsArchivoUsuarios(NombreArchivo: string): Boolean;
     function EsArchivoCorreos(NombreArchivo: string): Boolean;
     function EsArchivoContactos(NombreArchivo: string): Boolean;
-    procedure GenerarReporteContactos; // Agregar esta declaración
+    procedure GenerarReportesCompletos;
   public
   end;
 
@@ -117,19 +115,17 @@ begin
   frmControlLogeo.Free;
 end;
 
-procedure TFormMenuRoot.btnReporteComunidadesClick(Sender: TObject);
+procedure TFormMenuRoot.btnReportesClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Reporte de Comunidades en desarrollo...');
-end;
-
-procedure TFormMenuRoot.btnReporteContactosClick(Sender: TObject);
-begin
-  GenerarReporteContactos;
+  GenerarReportesCompletos;
 end;
 
 procedure TFormMenuRoot.btnVerMensajesComunidadClick(Sender: TObject);
 begin
-  ShowMessage('Funcionalidad de Ver Mensajes de Comunidad en desarrollo...');
+  // Mostrar formulario para ver mensajes de comunidades
+  frmVerMensajesComunidad := TfrmVerMensajesComunidad.Create(Application);
+  frmVerMensajesComunidad.ShowModal;
+  frmVerMensajesComunidad.Free;
 end;
 
 procedure TFormMenuRoot.btnSalirClick(Sender: TObject);
@@ -370,10 +366,42 @@ begin
   end;
 end;
 
-procedure TFormMenuRoot.GenerarReporteContactos;
+procedure TFormMenuRoot.GenerarReportesCompletos;
+var
+  ReportDir: string;
+begin
+  // Crear directorio de reportes
+  ReportDir := 'Reportes-Root';
+  if not DirectoryExists(ReportDir) then
+    CreateDir(ReportDir);
+
+  try
+    // 1. Generar reporte de contactos
+    GenerarReporteContactos(ReportDir);
+
+    // 2. Generar reporte de logueo
+    GenerarReporteLogueo(ReportDir);
+
+    ShowMessage('Reportes generados exitosamente en:' + sLineBreak +
+               ReportDir + sLineBreak +
+               'Archivos creados:' + sLineBreak +
+               '- reporte_contactos.dot' + sLineBreak +
+               '- reporte_contactos.png' + sLineBreak +
+               '- reporte_logueo.dot' + sLineBreak +
+               '- reporte_logueo.png' + sLineBreak +
+               '- logueo.json');
+
+  except
+    on E: Exception do
+      ShowMessage('Error al generar los reportes: ' + E.Message);
+  end;
+end;
+
+// Separa el reporte de contactos en un método aparte
+procedure TFormMenuRoot.GenerarReporteContactos(ReportDir: string);
 var
   DotContent: string;
-  DotFileName, PngFileName, ReportDir: string;
+  DotFileName, PngFileName: string;
   AProcess: TProcess;
 begin
   if not Assigned(GrafoContactosGlobal) or (GrafoContactosGlobal.Count = 0) then
@@ -381,11 +409,6 @@ begin
     ShowMessage('No hay contactos cargados en el sistema para generar el reporte.');
     Exit;
   end;
-
-  // Crear directorio de reportes
-  ReportDir := 'Reportes-Root';
-  if not DirectoryExists(ReportDir) then
-    CreateDir(ReportDir);
 
   try
     // Generar contenido DOT
@@ -413,17 +436,9 @@ begin
       AProcess.Options := AProcess.Options + [poWaitOnExit];
       AProcess.Execute;
 
-      if AProcess.ExitStatus = 0 then
+      if AProcess.ExitStatus <> 0 then
       begin
-        ShowMessage('Reporte de contactos generado exitosamente en:' + sLineBreak +
-                   ReportDir + sLineBreak +
-                   'Archivos creados:' + sLineBreak +
-                   '- reporte_contactos.dot' + sLineBreak +
-                   '- reporte_contactos.png');
-      end
-      else
-      begin
-        ShowMessage('Error al generar la imagen PNG. Verifique que Graphviz esté instalado.');
+        ShowMessage('Error al generar la imagen PNG de contactos. Verifique que Graphviz esté instalado.');
       end;
     finally
       AProcess.Free;
@@ -431,8 +446,123 @@ begin
 
   except
     on E: Exception do
-      ShowMessage('Error al generar el reporte: ' + E.Message);
+      ShowMessage('Error al generar el reporte de contactos: ' + E.Message);
   end;
+end;
+
+// Nuevo método para generar reporte de logueo
+procedure TFormMenuRoot.GenerarReporteLogueo(ReportDir: string);
+var
+  DotContent: string;
+  DotFileName, PngFileName, JsonFileName: string;
+  AProcess: TProcess;
+begin
+  if not Assigned(ControlLogGlobal) then
+  begin
+    ShowMessage('No hay datos de logueo para generar el reporte.');
+    Exit;
+  end;
+
+  try
+    // 1. Generar JSON del logueo
+    JsonFileName := ReportDir + '/logueo.json';
+    with TStringList.Create do
+    try
+      Text := ControlLogGlobal.ExportarJSON;
+      SaveToFile(JsonFileName);
+    finally
+      Free;
+    end;
+
+    // 2. Generar reporte gráfico del logueo
+    DotContent := GenerarReporteLogueoGraphviz;
+
+    // Guardar archivo .dot
+    DotFileName := ReportDir + '/reporte_logueo.dot';
+    with TStringList.Create do
+    try
+      Text := DotContent;
+      SaveToFile(DotFileName);
+    finally
+      Free;
+    end;
+
+    // Generar imagen PNG con Graphviz
+    PngFileName := ReportDir + '/reporte_logueo.png';
+    AProcess := TProcess.Create(nil);
+    try
+      AProcess.Executable := 'dot';
+      AProcess.Parameters.Add('-Tpng');
+      AProcess.Parameters.Add(DotFileName);
+      AProcess.Parameters.Add('-o');
+      AProcess.Parameters.Add(PngFileName);
+      AProcess.Options := AProcess.Options + [poWaitOnExit];
+      AProcess.Execute;
+
+      if AProcess.ExitStatus <> 0 then
+      begin
+        ShowMessage('Error al generar la imagen PNG del logueo. Verifique que Graphviz esté instalado.');
+      end;
+    finally
+      AProcess.Free;
+    end;
+
+  except
+    on E: Exception do
+      ShowMessage('Error al generar el reporte de logueo: ' + E.Message);
+  end;
+end;
+
+// Método para generar el contenido DOT del reporte de logueo
+function TFormMenuRoot.GenerarReporteLogueoGraphviz: string;
+var
+  JSONArray: TJSONArray;
+  I: Integer;
+  JSONObj: TJSONObject;
+begin
+  Result := 'digraph Logueo {' + sLineBreak;
+  Result := Result + '  rankdir=TB;' + sLineBreak;
+  Result := Result + '  node [shape=record, style=filled, color=lightgreen];' + sLineBreak;
+  Result := Result + '  edge [color=gray];' + sLineBreak + sLineBreak;
+
+  if not Assigned(ControlLogGlobal) then
+  begin
+    Result := Result + '  "NoData" [label="No hay datos de logueo"];' + sLineBreak;
+    Result := Result + '}' + sLineBreak;
+    Exit;
+  end;
+
+  // Obtener registros del logueo
+  JSONArray := ControlLogGlobal.ObtenerRegistros;
+  try
+    if JSONArray.Count = 0 then
+    begin
+      Result := Result + '  "NoData" [label="No hay registros de logueo"];' + sLineBreak;
+    end
+    else
+    begin
+      // Crear nodos para cada registro de logueo
+      for I := 0 to JSONArray.Count - 1 do
+      begin
+        JSONObj := JSONArray.Objects[I];
+        Result := Result + '  "Registro' + IntToStr(I) + '" [label="{' +
+                   JSONObj.Get('usuario', '') + '|' +
+                   'Entrada: ' + JSONObj.Get('entrada', '') + '|' +
+                   'Salida: ' + JSONObj.Get('salida', '') + '}"];' + sLineBreak;
+      end;
+
+      // Conectar nodos en orden
+      Result := Result + sLineBreak + '  // Conexiones temporales' + sLineBreak;
+      for I := 0 to JSONArray.Count - 2 do
+      begin
+        Result := Result + '  "Registro' + IntToStr(I) + '" -> "Registro' + IntToStr(I + 1) + '";' + sLineBreak;
+      end;
+    end;
+  finally
+    JSONArray.Free;
+  end;
+
+  Result := Result + '}' + sLineBreak;
 end;
 
 end.
